@@ -30,5 +30,10 @@ for file in zipfile:
         project[key] = [date]
     else:
         project[key].append(date)
-
-s3.download_file('midog', 'Projects/md0392/rawdata/md0392.rawdata.220727.zip', 'md0392.rawdata.220727.zip')
+        
+    s3.download_file('midog', file, fs[-1])
+    os.system('unzip %s' % fs[-1])
+    s3.upload_file()
+    
+ s3.download_file('midog', 'Projects/md0392/rawdata/md0392.rawdata.220727.zip', 'md0392.rawdata.220727.zip')
+   
