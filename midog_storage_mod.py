@@ -36,5 +36,5 @@ for file in zipfile:
     s3.upload_file()
     
 s3.download_file('midog', 'Projects/md0392/rawdata/md0392.rawdata.220727.zip', 'md0392.rawdata.220727.zip')
-s3.uploadload_file('zymo-filesystem', 'tmp/gwu_test/md0392_1c_R2.fastq.gz', 'md0392_1c_R2.fastq.gz')
+s3.uploadload_file('md0392_1c_R2.fastq.gz', 'zymo-filesystem', 'tmp/gwu_test/md0392_1c_R2.fastq.gz')
    
