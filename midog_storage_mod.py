@@ -38,8 +38,9 @@ for file in zipfile:
     f_path = '/'.join(fs[:-1])
     s_path = '%s/miniseq.%s/' % (f_path, date)
     for gz in os.listdir('./'):
-        #s3.upload_file(gz, 'zymo-filesystem', '%s/%s' % (s_path, gz))
-        os.system('rm %s' % gz)
+        if gz.endswith('.gz'):
+            #s3.upload_file(gz, 'zymo-filesystem', '%s/%s' % (s_path, gz))
+            os.system('rm %s' % gz)
     oup.write('%s\t%s\n' % (key, s_path))
 oup.close()
     
