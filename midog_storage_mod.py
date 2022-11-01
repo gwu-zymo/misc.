@@ -22,6 +22,7 @@ for key in data:
         zipfile[file] = ''
         
 project = {}
+oup = open('rawdata_midog.txt', 'w')
 for file in zipfile:
     fs = file.split('/')
     key = fs[1]
@@ -33,7 +34,14 @@ for file in zipfile:
         
     s3.download_file('midog', file, fs[-1])
     os.system('unzip %s' % fs[-1])
-    s3.upload_file()
+    os.system('rm *.zip')
+    f_path = '/'.join(fs[:-1])
+    s_path = '%s/miniseq_$s/%s' % (f_path, date, gz)
+    for gz in os.listdir('./'):
+        s3.upload_file(gz, 'zymo-filesystem', s_path)
+        os.system('rm ')
+    oup.write('%s\t%s\n' % (key, ))
+oup.close()
     
 s3.download_file('midog', 'Projects/md0392/rawdata/md0392.rawdata.220727.zip', 'md0392.rawdata.220727.zip')
 s3.uploadload_file('md0392_1c_R2.fastq.gz', 'zymo-filesystem', 'tmp/gwu_test/md0392_1c_R2.fastq.gz')
