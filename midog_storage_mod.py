@@ -36,7 +36,7 @@ for file in zipfile:
     os.system('unzip %s' % fs[-1])
     os.system('rm *.zip')
     f_path = '/'.join(fs[:-1])
-    s_path = '%s/miniseq_$s/%s' % (f_path, date, gz)
+    s_path = '%s/miniseq.$s/%s' % (f_path, date, gz)
     for gz in os.listdir('./'):
         s3.upload_file(gz, 'zymo-filesystem', s_path)
         os.system('rm ')
