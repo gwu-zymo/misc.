@@ -15,6 +15,20 @@ while line:
       count = True
       break
   
+  if 'bscess' not in line:
+    count = False
+  
   if count == True:
     ll = line.strip('\n').split(',')
-
+    ID = ll[65]
+    for i in range(0, len(ll)):
+      if header[i].startswith('k_'):
+        if ll[i] != '':
+          if not header[i] in spe_ct:
+            spe_ct[header[i]] = 1
+          else:
+            spe_ct[header[i]] = spe_ct[header[i]] + 1
+  line = inp.readline()
+inp.close()
+            
+oup = open('
