@@ -31,4 +31,7 @@ while line:
   line = inp.readline()
 inp.close()
             
-oup = open('
+oup = open('bunny_face_abscess.txt', 'w')
+for spe in spe_ct:
+  oup.write('%s\t%i\n' % (spe, spe_ct[spe]))
+oup.close()
