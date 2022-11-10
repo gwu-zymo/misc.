@@ -23,4 +23,10 @@ while line:
 inp.close()
 
 oup = open('spe_amr_list.txt', 'w')
-
+for spe in all:
+    oup.write('%s\t' % spe)
+    sorted_amr = sorted(all[spe].items(), key=operator.itemgetter(1))
+    for amr in sorted_amr:
+        oup.write('%s|%f\t' % (amr[0], amr[1]))
+    oup.write('\n')
+oup.close()
