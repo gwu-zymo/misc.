@@ -8,7 +8,7 @@ all = {}
 inp = open('rgi_amr_out.txt', 'r')
 line = inp.readline()
 while line:
-    ll = line.strip('\n').split('\t')
+    ll = line.strip('\n').strip('\t').split('\t')
     amr = ll[0]
     for key in ll[1:]:
         s_key = key.split('|')
