@@ -18,7 +18,7 @@ line = inp.readline()
 line = inp.readline()
 while line:
   ll = line.strip('\n').split(',')
-  taxid = 'taxid_' + ll[1].split('_')[-1]
+  taxid = 'taxid_' + ll[1].strip('.txt').split('_')[-1]
   id = ll[0]
   try:
     os.system('mv %s %s' % (id, taxid))
