@@ -37,7 +37,7 @@ for file in os.listdir('../run/'):
     inp.close()
     all[taxid].append(flist)
     
-oup = open('ssdb_11_15_2022.txt', 'r')
+oup = open('ssdb_11_15_2022.txt', 'w')
 oup2 = open('not_found', 'w')
 for taxid in all:
   if len(all[taxid]) == 3:
