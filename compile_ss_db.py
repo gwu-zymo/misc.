@@ -5,10 +5,11 @@ inp = open('ss_ref_db_10_2022.list', 'r')
 line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
-  spe = ll[2]
-  taxid = ll[0]
-  nr = ll[1]
-  all[taxid] = [spe, nr]
+  if len(ll) > 2:
+    spe = ll[2]
+    taxid = ll[0]
+    nr = ll[1]
+    all[taxid] = [spe, nr]
   line = inp.readline()
 inp.close()
 
