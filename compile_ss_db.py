@@ -20,9 +20,10 @@ while line:
   ll = line.strip('\n').split(',')
   taxid = 'taxid_' + ll[1].split('_')[-1]
   id = ll[0]
-  for file in os.listdir('./'):
-    if file == id:
-      os.system('mv %s %s' % (id, taxid))
+  try:
+    os.system('mv %s %s' % (id, taxid))
+  except:
+    pass
   line = inp.readline()
 inp.close()
 
