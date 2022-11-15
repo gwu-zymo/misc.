@@ -24,3 +24,25 @@ while line:
   line = inp.readline()
 inp.close()
 
+for file in os.listdir('../run/'):
+  taxid = file.split('_')[2]
+  if taxid in all:
+    inp = open(file, 'r')
+    flist = []
+    line = inp.readline()
+    while line:
+      flist.append(line.strip().replace('_genomic.fna', ''))
+      line = inp.readline()
+    inp.close()
+    all[taxid].append(flist)
+    
+oup = open('ssdb_11_15_2022.txt', 'r')
+oup2 = open('not_found', 'w')
+for taxid in all:
+  if len(all[taxid]) == 3:
+    oup.write('%s\t%s\t%s\t11_15_2022\t%s\n' % (all[taxid][0], taxid, all[taxid][1], ','.join(all[taxid][2])))
+  else:
+    oup2.write('%s\t%s\t%s\n' % (all[taxid][0], taxid, all[taxid][1]))
+oup.close()
+oup2.close()
+      
