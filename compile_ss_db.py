@@ -15,6 +15,7 @@ inp.close()
 
 inp = open('ssdb_202211100824.csv.csv', 'r')
 line = inp.readline()
+line = inp.readline()
 while line:
   ll = line.strip('\n').split(',')
   taxid = 'taxid_' + ll[1].split('_')[-1]
