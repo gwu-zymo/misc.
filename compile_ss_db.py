@@ -1,18 +1,5 @@
 import os, sys
 
-all = {}
-inp = open('ss_ref_db_10_2022.list', 'r')
-line = inp.readline()
-while line:
-  ll = line.strip('\n').split('\t')
-  if len(ll) > 2:
-    spe = ll[2]
-    taxid = ll[0]
-    nr = ll[1]
-    all[taxid] = [spe, nr]
-  line = inp.readline()
-inp.close()
-
 inp = open('ssdb_202211100824.csv.csv', 'r')
 line = inp.readline()
 line = inp.readline()
@@ -26,6 +13,24 @@ while line:
     pass
   line = inp.readline()
 inp.close()
+
+db_set = os.listdir('./')
+
+all = {}
+inp = open('ss_ref_db_10_2022.list', 'r')
+line = inp.readline()
+while line:
+  ll = line.strip('\n').split('\t')
+  if len(ll) > 2:
+    spe = ll[2]
+    taxid = ll[0]
+    nr = ll[1]
+    if ('taxid_' + taxid) in db_set:
+      all[taxid] = [spe, nr]
+  line = inp.readline()
+inp.close()
+
+
 
 for file in os.listdir('../run/'):
   taxid = file.split('_')[2]
