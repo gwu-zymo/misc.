@@ -35,7 +35,7 @@ inp.close()
 for file in os.listdir('../run/'):
   taxid = file.split('.')[0].split('_')[2]
   if taxid in all:
-    inp = open(file, 'r')
+    inp = open(''../run/' + file, 'r')
     flist = []
     line = inp.readline()
     while line:
