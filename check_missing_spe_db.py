@@ -31,3 +31,6 @@ for file in os.listdir('./run2/'):
     all[key][-1] = all[key][-1] + '2'
   
 oup = open('summary.txt', 'w')
+for key in all:
+  oup.write('%s\t%s\n' % (key, '\t'.join(all[key])))
+oup.close()
