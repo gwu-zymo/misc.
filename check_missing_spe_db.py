@@ -2,6 +2,7 @@ import os, sys
 
 kyle = {}
 inp = open('kyle.txt', 'r')
+line = inp.readline()
 while line:
   kyle[line.strip('\n')] = ''
   line = inp.readline()
