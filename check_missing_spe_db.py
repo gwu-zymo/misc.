@@ -27,6 +27,7 @@ for file in os.listdir('./run2/'):
       all[key].append('done')
     else:
       all[key].append('not')
+    all[key].append('2')
   else:
     all[key][-1] = all[key][-1] + '2'
   
