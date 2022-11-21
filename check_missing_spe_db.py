@@ -4,7 +4,7 @@ kyle = {}
 inp = open('kyle.txt', 'r')
 line = inp.readline()
 while line:
-  kyle[line.strip('\n')] = ''
+  kyle[line.strip('\n').split('.')[0]] = ''
   line = inp.readline()
   line = inp.readline()
 inp.close()
