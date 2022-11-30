@@ -17,7 +17,7 @@ while line:
   for key in all:
     if key in line:
       path = line.split('\t')[19]
-      fpath = path + '_genomic.fna'
+      fpath = '%s/%s_genomic.fna.gz' % (path, key)
       print(fpath)
       os.system('wget %s' % fpath)
       break
