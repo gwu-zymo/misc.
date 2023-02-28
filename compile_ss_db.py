@@ -1,6 +1,6 @@
 import os, sys
 
-inp = open('ssdb_202211100824.csv.csv', 'r')
+inp = open('export_2023-02-24_20_42_12.499309.csv', 'r')
 line = inp.readline()
 line = inp.readline()
 while line:
