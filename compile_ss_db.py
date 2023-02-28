@@ -31,14 +31,20 @@ inp.close()
 oup = open('ssdb_2_28_2023.txt', 'w')
 for file in os.listdir('./'):
   if file.startswith('taxid_'):
-    inp = open('./%s/Cluster_Result/hclsMap_95.txt', 'r')
+    inp = open('./%s/Cluster_Result/hclsMap_95.txt' % file, 'r')
+    print(file, 'starting')
     gset = {}
     line = inp.readline()
     while line:
+      print(line)
       ll = line.strip('\n').split('\t')
       for g in ll[-1].split(','):
         gset[g] = ''
+      line = inp.readline()
     oup.write('%s\t%s\t%i\t%s\n' % (file, all[file], len(gset), ','.join(gset)))
+    inp.close()
+    print(file, 'done')
+    
 oup.close()
 
 
