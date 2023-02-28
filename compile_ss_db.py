@@ -14,6 +14,13 @@ while line:
   line = inp.readline()
 inp.close()
 
+
+
+
+
+
+
+'''
 db_set = os.listdir('./')
 
 all = {}
@@ -53,4 +60,4 @@ for taxid in all:
     oup2.write('%s\t%s\t%s\n' % (all[taxid][0], taxid, all[taxid][1]))
 oup.close()
 oup2.close()
-      
+'''      
