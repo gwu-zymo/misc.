@@ -1,5 +1,19 @@
 import os, sys
 
+all = {}
+inp = open('assembly_combined.txt', 'r')
+line = inp.readline()
+line = inp.readline()
+while line:
+  ll = line.split('\t')
+  taxid = 'taxid_' + ll[6]
+  spe = ll[7]
+  all[taxid] = spe
+  line = inp.readline()
+inp.close()
+  
+
+
 inp = open('export_2023-02-24_20_42_12.499309.csv', 'r')
 line = inp.readline()
 line = inp.readline()
@@ -14,6 +28,18 @@ while line:
   line = inp.readline()
 inp.close()
 
+oup = open('ssdb_2_28_2023.txt', 'w')
+for file in os.listdir('./'):
+  if file.startswith('taxid_'):
+    inp = open('./%s/Cluster_Result/hclsMap_95.txt', 'r')
+    gset = {}
+    line = inp.readline()
+    while line:
+      ll = line.strip('\n').split('\t')
+      for g in ll[-1].split(','):
+        gset[g] = ''
+    oup.write('%s\t%s\t%i\t%s\n' % (file, all[file], len(gset), ','.join(gset)))
+oup.close()
 
 
 
