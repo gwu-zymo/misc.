@@ -27,7 +27,7 @@ for file in os.listdir('./'):
   for pool in all:
     oup = open(pool + '_tally.txt', 'w')
     for taxa in all[pool]:
-      oup.wrtie('%s\t%i\n' % (taxa, all[pool][taxa]))
+      oup.write('%s\t%i\n' % (taxa, all[pool][taxa]))
     oup.close()
           
   os.system('rm -r %s' % folder)
