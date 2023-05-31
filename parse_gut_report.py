@@ -15,17 +15,20 @@ for file in os.listdir('./'):
     if pool.startswith('midog.'):
       if not pool in all:
         all[pool] = {}
-      inp = open('./%s/%s/taxa_plots/sorted_otu_L7.txt' % (folder, pool))
-      line = inp.readline()
-      while line:
-        if not line.startswith('#'):
-          line_split = line.strip().split()
-          taxa = line_split[0]
-          if not taxa in all[pool]:
-            all[pool][taxa] = 0
-          all[pool][taxa]+=1
+      try:  
+        inp = open('./%s/%s/taxa_plots/sorted_otu_L7.txt' % (folder, pool))
         line = inp.readline()
-      inp.close()
+        while line:
+          if not line.startswith('#'):
+            line_split = line.strip().split()
+            taxa = line_split[0]
+            if not taxa in all[pool]:
+              all[pool][taxa] = 0
+            all[pool][taxa]+=1
+          line = inp.readline()
+        inp.close()
+      except:
+        pass
   os.system('rm -r %s' % folder)
   
 for pool in all:
