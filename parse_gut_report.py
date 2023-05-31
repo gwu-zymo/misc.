@@ -6,6 +6,7 @@ import os, sys
 
 all = {}
 for file in os.listdir('./'):
+  print('processing %s.......' % file)
   os.system('unzip %s' % file)
   folder = file.rstrip('.zip')
   if '.DIG' in folder:
