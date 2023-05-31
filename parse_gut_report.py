@@ -7,8 +7,8 @@ import os, sys
 all = {}
 for file in os.listdir('./'):
   os.system('unzip %s' % file)
-  folder = file.strip('.zip')
-  for pool in os.listdir('./%s' % folder):
+  folder = file.rstrip('.zip')
+  for pool in os.listdir('./%s/' % folder):
     if pool.startswith('midog.'):
       if not pool in all:
         all[pool] = {}
