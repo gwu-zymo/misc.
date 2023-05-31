@@ -8,6 +8,8 @@ all = {}
 for file in os.listdir('./'):
   os.system('unzip %s' % file)
   folder = file.rstrip('.zip')
+  if '.DIG' in folder:
+    folder = folder.replace('.DIG', '.zymo')
   for pool in os.listdir('./%s/' % folder):
     if pool.startswith('midog.'):
       if not pool in all:
@@ -23,11 +25,12 @@ for file in os.listdir('./'):
           all[pool][taxa]+=1
         line = inp.readline()
       inp.close()
-  
-  for pool in all:
-    oup = open(pool + '_tally.txt', 'w')
-    for taxa in all[pool]:
-      oup.write('%s\t%i\n' % (taxa, all[pool][taxa]))
-    oup.close()
-          
   os.system('rm -r %s' % folder)
+  
+for pool in all:
+  oup = open(pool + '_tally.txt', 'w')
+  for taxa in all[pool]:
+    oup.write('%s\t%i\n' % (taxa, all[pool][taxa]))
+  oup.close()
+          
+  
