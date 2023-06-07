@@ -26,8 +26,8 @@ sample_i = ll.index(sample)
 line = inp.readline()
 while line:  
   ll = line.strip('\n').split('\t')
-  genus = ll[0].split(';')[-1].lstrip('g__')
-  if genus in genus_list:
+  genus = ll[0].split(';')[-1].lstrip('g__').split('-')
+  if (genus[0] in genus_list) or (genus[-1] in genus_list):
     genus_list[1] = ll[sample_i]
     total+=float(ll[sample_i])
   line = inp.readline()
