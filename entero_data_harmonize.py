@@ -13,6 +13,8 @@ while line:
   line = inp.readline()
 inp.close()
 
+genus_list[''][0]+='\t%s' % sys.argv[1]
+
 #parse sample file
 sample = sys.argv[1]
 inp = open('sorted_otu_L6.txt', 'r')
@@ -24,7 +26,7 @@ sample_i = ll.index(sample)
 line = inp.readline()
 while line:  
   ll = line.strip('\n').split('\t')
-  genus = ll[0].split('g__')[1]
+  genus = ll[0].split(';')[-1].lstrip('g__')
   if genus in genus_list:
     genus_list[1] = ll[sample_i]
     total+=float(ll[sample_i])
