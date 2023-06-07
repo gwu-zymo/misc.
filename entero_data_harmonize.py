@@ -13,7 +13,7 @@ while line:
   line = inp.readline()
 inp.close()
 
-genus_list[''][0]+='\t%s' % sys.argv[1]
+genus_list[''][1] = sys.argv[1]
 
 #parse sample file
 sample = sys.argv[1]
