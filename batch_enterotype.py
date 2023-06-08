@@ -22,6 +22,7 @@ for zip in os.listdir('./'):
           line = inp_r.readline()
         inp_r.close()
     inp.close()
+    subprocess.run(['rm', '-r', folder])
 
 
 
