@@ -85,7 +85,7 @@ plot(nclusters, type="h", xlab="k clusters", ylab="CH index",main="Optimal numbe
 obs.silhouette=mean(silhouette(data.cluster, data.dist)[,3])
 cat(obs.silhouette) #0.1899451
 
-sink(file = "lm_output.txt")
+sink(file = "r_output.txt")
 summary(fit)
 sink(file = NULL)
                    
