@@ -30,7 +30,7 @@ library(clusterSim)
 
 #Download the example data and set the working directory
 #setwd('<path_to_working_directory>')
-data=read.table("MetaHIT_SangerSamples.genus.txt", header=T, row.names=1, dec=".", sep="\t")
+data=read.table("sample_entero.data.txt", header=T, row.names=1, dec=".", sep="\t")
 data=data[-1,]
 
 dist.JSD <- function(inMatrix, pseudocount=0.000001, ...) {
