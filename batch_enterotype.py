@@ -21,6 +21,7 @@ for zip in os.listdir('./'):
         inp_r.close()
     inp.close()
     subprocess.run(['rm', '-r', folder])
+    subprocess.run(['rm', '-r', '*.zymo']) 
 
 
 
