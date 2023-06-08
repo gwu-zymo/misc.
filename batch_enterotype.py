@@ -14,6 +14,7 @@ for zip in os.listdir('./'):
     for sample in ll[1:]:
       if ('Pos' not in sample) and ('Neg' not in sample) and ('.Control' not in sample):
         subprocess.run(['python3', 'entero_data_harmonize.py', sample])
+        subprocess.run(['r', 'enterotyping.r'])
         inp_r = open('r_output.txt', 'r')
         line = inp_r.readline()
         while line:
