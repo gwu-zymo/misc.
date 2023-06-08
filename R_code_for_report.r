@@ -86,7 +86,7 @@ obs.silhouette=mean(silhouette(data.cluster, data.dist)[,3])
 cat(obs.silhouette) #0.1899451
 
 sink(file = "r_output.txt")
-summary(fit)
+summary(data.cluster)
 sink(file = NULL)
                    
                    
