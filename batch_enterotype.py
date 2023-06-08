@@ -16,10 +16,8 @@ for zip in os.listdir('./'):
         subprocess.run(['python3', 'entero_data_harmonize.py', sample])
         subprocess.run(['r', 'enterotyping.r'])
         inp_r = open('r_output.txt', 'r')
-        line = inp_r.readline()
-        while line:
-          oup.write('%s\t%s' % (sample, line))
-          line = inp_r.readline()
+        lines = inp_r.readlines()
+        oup.write('%s\t%s\n' % (sample, '|'.join(lines).replace('\n', '')))
         inp_r.close()
     inp.close()
     subprocess.run(['rm', '-r', folder])
