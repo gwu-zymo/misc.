@@ -17,7 +17,7 @@ while line:
   if 'f_Christensenellaceae;g__NA;s__NA' in line:
     species_name = 'Christensenellaceae NA'
   else:
-    species_name = ' '.join(ll[0].split(';')[-2:len(ll)]).replace('g__', '').replace('s__', '')
+    species_name = ' '.join(ll[0].split(';')[-2:len(ll)+1]).replace('g__', '').replace('s__', '')
   species_abd[species_name] = ll[pos]
   line = inp.readline()
 inp.close()
