@@ -81,7 +81,7 @@ while line:
   line = inp.readline()
 inp.close()
 oup.close()
-oup = open(f"pathway_complied_{sample}.txt", 'w')  
+oup = open(f"pathway_compiled_{sample}.txt", 'w')  
 for pathway in all_path:
   oup.write(f"{pathway}\t{all_path[pathway]}\n")
 oup.close()
