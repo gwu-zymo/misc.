@@ -68,16 +68,16 @@ while line:
     all_path[pathway] = 0
   if ' ' in name:
     if name in species_abd:
-      oup.write(f"{line.strip('\n')}\t{species_abd[name]}\n")
+      oup.write(f"{line.strip()}\t{species_abd[name]}\n")
       all_path[pathway]+=float(species_abd[name])
     else:
       oup.write(f"{line.strip('\n')}\t0\n")
   else:
     if name in genus_abd:
-      oup.write(f"{line.strip('\n')}\t{genus_abd[name]}\n")
+      oup.write(f"{line.strip()}\t{genus_abd[name]}\n")
       all_path[pathway]+=float(genus_abd[name])
     else:
-      oup.write(f"{line.strip('\n')}\t0\n")
+      oup.write(f"{line.strip()}\t0\n")
   line = inp.readline()
 inp.close()
 oup.close()
