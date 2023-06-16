@@ -56,8 +56,37 @@ while line:
 inp.close()
 oup.close()
 
-
-    
+inp = open('pathway.txt', 'r')
+oup = open(f"pathway_{sample}.txt", 'w')
+all_path = {}
+line = inp.readline()
+while line:
+  ll = line.strip('\n').split('\t')
+  name = ll[0]
+  pathway = ll[1]
+  if not pathway in all_path:
+    all_path[pathway] = 0
+  if ' ' in name:
+    if name in species_abd:
+      oup.write(f"{line.strip('\n')}\t{species_abd[name]}\n")
+      all_path[pathway]+=float(species_abd[name])
+    else:
+      oup.write(f"{line.strip('\n')}\t0\n")
+  else:
+    if name in genus_abd:
+      oup.write(f"{line.strip('\n')}\t{genus_abd[name]}\n")
+      all_path[pathway]+=float(genus_abd[name])
+    else:
+      oup.write(f"{line.strip('\n')}\t0\n")
+  line = inp.readline()
+inp.close()
+oup.close()
+oup = open(f"pathway_complied_{sample}.txt", 'w')  
+for pathway in all_path:
+  oup.write(f"{pathway}\t{all_path[pathway]}\n")
+oup.close()
+            
+           
                 
 
 
