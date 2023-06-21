@@ -43,19 +43,11 @@ oup = open(f"keystone_{sample}.txt", 'w')
 line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
-  if len(ll) == 2:
-    name_na = ll[1]
-    name = ll[0]
-    if name_na in species_abd:
-      oup.write(f"{name}\t{species_abd[name_na]}\n")
-    else:
-      oup.write(f"{name}\t0\n")
-  elif len(ll) == 1:
-    name = ll[0]
-    if name in species_abd:
-      oup.write(f"{name}\t{species_abd[name]}\n")
-    else:
-      oup.write(f"{name}\t0\n")
+  name = ll[0]
+  if name in species_abd:
+    oup.write(f"{name}\t{species_abd[name]}\n")
+  else:
+    oup.write(f"{name}\t0\n")
   line = inp.readline()
 inp.close()
 oup.close()
