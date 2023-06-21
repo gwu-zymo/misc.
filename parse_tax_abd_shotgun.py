@@ -31,8 +31,10 @@ line = inp.readline()
 line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
-  genus_name = ll[0].split(';')[-1].replace('g__', '')
-  genus_abd[genus_name] = ll[pos]
+  genus_name = ll[0].split(';')[-1].replace('g__', '').split('_')[0]
+  if not genus_name in genus_abd:
+    genus_abd[genus_name] = 0
+  genus_abd[genus_name]+=float(ll[pos])
   line = inp.readline()
 inp.close()
 
