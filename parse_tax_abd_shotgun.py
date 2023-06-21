@@ -14,11 +14,13 @@ pos = ll.index(sample)
 line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
-  if 'f_Christensenellaceae;g__NA;s__NA' in line:
-    species_name = 'Christensenellaceae NA'
-  else:
-    species_name = ' '.join(ll[0].split(';')[-2:len(ll)+1]).replace('g__', '').replace('s__', '')
-  species_abd[species_name] = ll[pos]
+  long_name = ll[0].split(';')[-1]
+  g = long_name.split(' ')[0].lstrip('s__').split('_')[0]
+  s = long_name.split(' ')[1].split('_')[0]
+  species_name = f"{g} {s}"
+  if not species_name in species_abd:
+    species_abd[species_name] = 0
+  species_abd[species_name]+=float(ll[pos])
   line = inp.readline()
 inp.close()
 
