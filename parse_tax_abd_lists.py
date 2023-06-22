@@ -18,7 +18,7 @@ while line:
     species_name = 'Christensenellaceae NA'
   else:
     species_name = ' '.join(ll[0].split(';')[-2:len(ll)+1]).replace('g__', '').replace('s__', '')
-  species_abd[species_name] = ll[pos]
+  species_abd[species_name] = float(ll[pos])
   line = inp.readline()
 inp.close()
 
@@ -30,7 +30,7 @@ line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
   genus_name = ll[0].split(';')[-1].replace('g__', '')
-  genus_abd[genus_name] = ll[pos]
+  genus_abd[genus_name] = float(ll[pos])
   line = inp.readline()
 inp.close()
 
@@ -69,13 +69,13 @@ while line:
   if ' ' in name:
     if name in species_abd:
       oup.write(f"{line.strip()}\t{species_abd[name]}\n")
-      all_path[pathway]+=float(species_abd[name])
+      all_path[pathway]+=species_abd[name]
     else:
       oup.write(f"{line.strip()}\t0\n")
   else:
     if name in genus_abd:
       oup.write(f"{line.strip()}\t{genus_abd[name]}\n")
-      all_path[pathway]+=float(genus_abd[name])
+      all_path[pathway]+=genus_abd[name]
     else:
       oup.write(f"{line.strip()}\t0\n")
   line = inp.readline()
@@ -86,8 +86,31 @@ for pathway in all_path:
   oup.write(f"{pathway}\t{all_path[pathway]}\n")
 oup.close()
             
-           
-                
+oup = open(f"top_10_bac_{sample}.txt", 'w')
+sorted_items = sorted(species_abd.items(), key=lambda x: x[1], reverse=True)[:10]
+for key in sorted_items:
+  oup.write(f"{key[0]}\t{key[1]}\n")
+oup.close()
+
+fungi_abd = {}
+inp = open(f"./{folder}/midog.b.FungiITS/taxa_plots/sorted_otu_L7.txt", 'r')
+line = inp.readline()
+line = inp.readline()
+ll = line.strip('\n').split('\t')
+pos = ll.index(sample)
+line = inp.readline()
+while line:
+  ll = line.strip('\n').split('\t')
+  species_name = ' '.join(ll[0].split(';')[-2:len(ll)+1]).replace('g__', '').replace('s__', '')
+  fungi_abd[species_name] = float(ll[pos])
+  line = inp.readline()
+inp.close()
+
+oup = open(f"top_10_fun_{sample}.txt", 'w')
+sorted_items = sorted(fungi_abd.items(), key=lambda x: x[1], reverse=True)[:10]
+for key in sorted_items:
+  oup.write(f"{key[0]}\t{key[1]}\n")
+oup.close()
 
 
 
