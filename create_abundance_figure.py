@@ -9,7 +9,7 @@ inp = open('Healthy_Gut_Cohort_Species_Taxa_V1.csv', 'r')
 line = inp.readline()
 line = inp.readline()
 while line:
-  ll = line.strip('\n').split('\t')
+  ll = line.strip('\n').split(',')
   old_name = ll[0].split(';')[-1]
   g = old_name.split(' ')[0].lstrip('s__').split('_')[0]
   s = old_name.split(' ')[1].split('_')[0]
