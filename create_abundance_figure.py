@@ -27,7 +27,7 @@ healthy_all['Ruminococcus sp.'] = healthy_all['Ruminococcus bromii']
 inp = open('Healthy_pathway.txt', 'r')
 line = inp.readline()
 while line:
-  ll = line.strip('\n').split(',')
+  ll = line.strip('\n').split('\t')
   name = ll[0]
   if name not in healthy_all:
     healthy_all[name] = list(map(float, ll[1:]))
