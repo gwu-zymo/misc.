@@ -35,7 +35,8 @@ inp.close()
 
 oup = open('Healthy_pathway.txt', 'w')
 for pathway in pathway_abd:
-  oup.write(f"{pathway}\t{'\t'.join(list(map(str, pathway_abd[pathway])))}\n")
+  numbers = '\t'.join(list(map(str, pathway_abd[pathway])))
+  oup.write(f"{pathway}\t{numbers}\n")
 oup.close()
 
 
