@@ -109,7 +109,8 @@ inp.close()
 oup = open(f"top_10_fun_{sample}.txt", 'w')
 sorted_items = sorted(fungi_abd.items(), key=lambda x: x[1], reverse=True)[:10]
 for key in sorted_items:
-  oup.write(f"{key[0]}\t{key[1]}\n")
+  if key[1] > 0:
+    oup.write(f"{key[0]}\t{key[1]}\n")
 oup.close()
 
 
