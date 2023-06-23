@@ -14,7 +14,10 @@ while line:
   g = old_name.split(' ')[0].lstrip('s__').split('_')[0]
   s = old_name.split(' ')[1].split('_')[0]
   name = f"{g} {s}"
-  healthy_all[name] = list(map(float, ll[1:]))
+  if name not in healthy_all:
+    healthy_all[name] = list(map(float, ll[1:]))
+  else:
+    healthy_all[name] = [x + y for x, y in zip(healthy_all[name], list(map(float, ll[1:])))] 
   line = inp.readline()
 inp.close()
 
