@@ -34,7 +34,7 @@ while line:
     fig, ax = plt.subplots(figsize=(2, 12))
     violin = ax.violinplot(numbers)
     ax.plot(1, abd, 'ro')
-    plt.savefig(f"{species.replace(' ', '_')}_violin_plot.png")
+    plt.savefig(f"{spe.replace(' ', '_')}_violin_plot.png")
   line = inp.close()
 inp.close()
 
