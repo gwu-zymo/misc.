@@ -28,7 +28,8 @@ while line:
   spe = ll[0]
   abd = float(ll[1])
   if spe in healthy_all:
-    abd_list = healthy_all[spe].append(abd)
+    abd_list = healthy_all[spe]
+    abd_list.append(abd)
     numbers = np.array(abd_list)
     fig, ax = plt.subplots(figsize=(2, 12))
     violin = ax.violinplot(numbers)
