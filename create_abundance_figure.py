@@ -21,6 +21,9 @@ while line:
   line = inp.readline()
 inp.close()
 
+healthy_all['Christensenella sp.'] = healthy_all['Christensenella minuta']
+healthy_all['Ruminococcus sp.'] = healthy_all['Ruminococcus bromii']
+
 inp = open(sys.argv[1], 'r')
 line = inp.readline()
 while line:
