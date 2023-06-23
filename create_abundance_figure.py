@@ -24,6 +24,16 @@ inp.close()
 healthy_all['Christensenella sp.'] = healthy_all['Christensenella minuta']
 healthy_all['Ruminococcus sp.'] = healthy_all['Ruminococcus bromii']
 
+inp = open('Healthy_pathway.txt', 'r')
+line = inp.readline()
+while line:
+  ll = line.strip('\n').split(',')
+  name = ll[0]
+  if name not in healthy_all:
+    healthy_all[name] = list(map(float, ll[1:]))
+  line = inp.readline()
+inp.close()
+
 inp = open(sys.argv[1], 'r')
 line = inp.readline()
 while line:
