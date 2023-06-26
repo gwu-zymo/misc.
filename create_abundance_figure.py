@@ -45,7 +45,7 @@ while line:
     abd_list.append(abd)
     numbers = np.array(abd_list)
     fig, ax = plt.subplots(figsize=(2, 12))
-    violin = ax.violinplot(numbers, vert=False)
+    violin = ax.violinplot(numbers)
     ax.plot(1, abd, 'ro')
     ax.axis('off')
     plt.savefig(f"{spe.replace(' ', '_')}_violin_plot.png")
