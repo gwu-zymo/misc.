@@ -81,3 +81,35 @@ oup = open(f"pathway_compiled_{sample}.txt", 'w')
 for pathway in all_path:
   oup.write(f"{pathway}\t{all_path[pathway]}\n")
 oup.close()
+
+oup = open(f"top_10_bac_{sample}.txt", 'w')
+sorted_items = sorted(species_abd.items(), key=lambda x: x[1], reverse=True)[:10]
+for key in sorted_items:
+  oup.write(f"{key[0]}\t{key[1]}\n")
+oup.close()
+
+fungi_abd = {}
+inp = open(f"./{folder}/midog.b.FungiITS/taxa_plots/sorted_otu_L7.txt", 'r')
+line = inp.readline()
+line = inp.readline()
+ll = line.strip('\n').split('\t')
+pos = ll.index(sample)
+line = inp.readline()
+while line:
+  ll = line.strip('\n').split('\t')
+  species_name = ' '.join(ll[0].split(';')[-2:len(ll)+1]).replace('g__', '').replace('s__', '')
+  fungi_abd[species_name] = float(ll[pos])
+  line = inp.readline()
+inp.close()
+
+oup = open(f"top_10_fun_{sample}.txt", 'w')
+sorted_items = sorted(fungi_abd.items(), key=lambda x: x[1], reverse=True)[:10]
+for key in sorted_items:
+  if key[1] > 0 and (key[0] != 'Other Other') and (key[0] != 'NA NA'):
+    oup.write(f"{key[0]}\t{key[1]}\n")
+oup.close()
+
+
+
+
+
