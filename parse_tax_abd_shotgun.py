@@ -6,7 +6,7 @@ import os, sys
 folder = sys.argv[1]
 sample = sys.argv[2]
 species_abd = {}
-inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/6.Species/species.txt", 'r')
+inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/6.Species/species.tsv", 'r')
 line = inp.readline()
 line = inp.readline()
 ll = line.strip('\n').split('\t')
@@ -25,7 +25,7 @@ while line:
 inp.close()
 
 genus_abd = {}
-inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/5.Genus/genus.txt", 'r')
+inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/5.Genus/genus.tsv", 'r')
 line = inp.readline()
 line = inp.readline()
 line = inp.readline()
