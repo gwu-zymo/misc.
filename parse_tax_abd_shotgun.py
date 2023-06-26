@@ -89,7 +89,7 @@ for key in sorted_items:
 oup.close()
 
 fungi_abd = {}
-inp = open(f"./{folder}/midog.b.FungiITS/taxa_plots/sorted_otu_L7.txt", 'r')
+inp = open(f"./{folder}/00...AllSamples.illumina.pe/Eukaryote/AbundanceTables/6.Species/species.tsv", 'r')
 line = inp.readline()
 line = inp.readline()
 ll = line.strip('\n').split('\t')
