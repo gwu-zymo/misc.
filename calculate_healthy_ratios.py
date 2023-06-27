@@ -7,7 +7,7 @@ inp = open('Healthy_Gut_Cohort_Species_Taxa_V1.csv', 'r')
 line = inp.readline()
 line = inp.readline()
 while line:
-  ll = line.strip('\n').split('\t')
+  ll = line.strip('\n').split(',')
   phylum = ll[0].split(';')[1].lstrip('p__')
   genus = ll[0].split(';')[-2].lstrip('g__')
   if not phylum in phylum_all:
