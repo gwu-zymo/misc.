@@ -22,9 +22,11 @@ while line:
 inp.close()
 
 for phylum in phylum_all:
-  phylum_all[phylum] = [x + 0.00000000000000000001 for x in zip(phylum_all[phylum])]
+  for i in range(0, len(phylum_all[phylum])):
+    phylum_all[phylum][i]+=0.00000000000000000001
 for genus in genus_all:
-  genus_all[genus] = [x + 0.00000000000000000001 for x in zip(genus_all[genus])]
+  for i in range(0, len(genus_all[genus])):
+    genus_all[genus][i]+=0.00000000000000000001
 
 
 oup = open('healthy_ratios.txt', 'w')
