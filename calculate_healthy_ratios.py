@@ -21,6 +21,12 @@ while line:
   line = inp.readline()
 inp.close()
 
+for phylum in phylum_all:
+  phylum_all[phylum] = [x + 0.00000000000000000001 for x in zip(phylum_all[phylum])]
+for genus in genus_all:
+  genus_all[genus] = [x + 0.00000000000000000001 for x in zip(genus_all[genus])]
+
+
 oup = open('healthy_ratios.txt', 'w')
 ratios = [x/y for x, y in zip(phylum_all['Firmicutes'], phylum_all['Bacteroidota'])]
 ratios_w = '\t'.join(list(map(str, ratios)))
