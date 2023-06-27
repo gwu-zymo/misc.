@@ -23,8 +23,8 @@ inp.close()
 
 oup = open('healthy_ratios.txt', 'w')
 ratios = [x/y for x, y in zip(phylum_all['Firmicutes'], phylum_all['Bacteroidota'])]
-ratios_w = '\t'.join(list(map(str, ratios))
-oup.write(f"Firmicutes|Bacteroidota\t{ratios_w)}\n")
+ratios_w = '\t'.join(list(map(str, ratios)))
+oup.write(f"Firmicutes|Bacteroidota\t{ratios_w}\n")
 ratios = [x/y for x, y in zip(phylum_all['Proteobacteria'], phylum_all['Actinobacteriota'])]
 ratios_w = '\t'.join(list(map(str, ratios)))
 oup.write(f"Proteobacteria|Actinobacteriota\t{ratios_w}\n")
