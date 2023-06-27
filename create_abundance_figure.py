@@ -48,7 +48,7 @@ while line:
     violin = ax.violinplot(numbers)
     ax.plot(1, abd, 'ro')
     ax.axis('off')
-    plt.savefig(f"{spe.replace(' ', '_')}_violin_plot.png")
+    plt.savefig(f"{spe.replace(' ', '_')}_violin_plot.png", transparent=True)
   line = inp.readline()
 inp.close()
 
