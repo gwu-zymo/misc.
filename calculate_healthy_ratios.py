@@ -23,9 +23,12 @@ inp.close()
 
 oup = open('healthy_ratios.txt', 'w')
 ratios = [x/y for x, y in zip(phylum_all['Firmicutes'], phylum_all['Bacteroidota'])]
-oup.write(f"Firmicutes|Bacteroidota\t{'\t'.join(list(map(str, ratios)))}\n")
+ratios_w = '\t'.join(list(map(str, ratios))
+oup.write(f"Firmicutes|Bacteroidota\t{ratios_w)}\n")
 ratios = [x/y for x, y in zip(phylum_all['Proteobacteria'], phylum_all['Actinobacteriota'])]
-oup.write(f"Proteobacteria|Actinobacteriota\t{'\t'.join(list(map(str, ratios)))}\n")
+ratios_w = '\t'.join(list(map(str, ratios)))
+oup.write(f"Proteobacteria|Actinobacteriota\t{ratios_w}\n")
 ratios = [x/y for x, y in zip(genus_all['Prevotella'], genus_all['Bacteroides'])]
-oup.write(f"Prevotella|Bacteroides\t{'\t'.join(list(map(str, ratios)))}\n")
+ratios_w = '\t'.join(list(map(str, ratios)))
+oup.write(f"Prevotella|Bacteroides\t{ratios_w}\n")
 oup.close()
