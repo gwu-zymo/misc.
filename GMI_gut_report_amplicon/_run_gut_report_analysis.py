@@ -15,6 +15,9 @@ subprocess.run(['python3', 'parse_tax_abd_lists.py', folder, sample])
 subprocess.run(['python3', 'create_abundance_figure.py', f"keystone_{sample}.txt"])
 subprocess.run(['python3', 'create_abundance_figure.py', f"pathway_compiled_{sample}.txt"])
 subprocess.run(['python3', 'create_abundance_figure.py', f"top_10_bac_{sample}.txt"])
+subprocess.run(['mkdir', 'analysis_results'])
+subprocess.run(['mv', f"*_{sample}.txt", 'analysis_results'])
+subprocess.run(['mv', f"*.png", 'analysis_results'])
 
 
 
