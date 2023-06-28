@@ -1,4 +1,4 @@
-#run gut report analysis
+#run gut report analysis (need to build a docker file with packages installed)
 #need folder sample_ID; for example: pbg0530.230511.zymo 1235364
 import sys, subprocess
 
