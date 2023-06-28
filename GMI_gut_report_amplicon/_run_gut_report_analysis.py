@@ -19,5 +19,3 @@ subprocess.run(['python3', 'create_abundance_figure.py', f"top_10_bac_{sample}.t
 
 
 
-result = subprocess.run(['command', 'arg1', 'arg2'])
-
