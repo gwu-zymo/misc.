@@ -3,6 +3,10 @@
 import sys, subprocess
 
 subprocess.run(['sudo', 'apt', 'update', '-y'])
+subprocess.run(['sudo', 'apt', 'install', 'python3-pip', '-y'])
+subprocess.run(['pip3', 'install', 'numpy'])
+subprocess.run(['pip3', 'install', 'matplotlib'])
+
 
 subprocess.run(['unzip', ])
 
