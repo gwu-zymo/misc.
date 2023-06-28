@@ -11,6 +11,11 @@ subprocess.run(['pip3', 'install', 'numpy'])
 subprocess.run(['pip3', 'install', 'matplotlib'])
 
 subprocess.run(['unzip', f"{folder}.zip"])
+subprocess.run(['python3', 'parse_tax_abd_lists.py', folder, sample])
+subprocess.run(['python3', 'create_abundance_figure.py', f"keystone_{sample}.txt"])
+subprocess.run(['python3', 'create_abundance_figure.py', f"pathway_compiled_{sample}.txt"])
+subprocess.run(['python3', 'create_abundance_figure.py', f"top_10_bac_{sample}.txt"])
+
 
 
 
