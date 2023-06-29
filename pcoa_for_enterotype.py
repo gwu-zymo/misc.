@@ -2,9 +2,11 @@
 #need entero genus table and type prediction table
 import os, sys
 import pandas as pd
+import numpy as np
 
 data = pd.read_csv(sys.argv[1], sep='\t', index_col=0)
 data = data[1:]
+data = data.T
 
 #scikit-learn
 from sklearn.decomposition import PCA
@@ -20,21 +22,22 @@ groups[-1] = '4'
 
 import matplotlib.pyplot as plt
 
-group_colors = ['pink', 'orange', 'blue', 'black']  
+group_colors = ['pink', 'orange', 'blue', 'green']
 
 plt.figure(figsize=(8, 6))  # Adjust the figure size as per your preference
 
-for group, color in zip(groups, group_colors):
-    group_samples = pcoa[groups == group]
-    plt.scatter(group_samples[:, 0], group_samples[:, 1], color=color)
+for i, group in enumerate(set(groups)):
+    group_samples = pcoa[np.array(groups) == group]
+    if len(group_data) > 0:
+        plt.scatter(group_samples[:, 0], group_samples[:, 1], color=group_colors[i], label=f'Group {group}')
 
 plt.xlabel('PC1')
 plt.ylabel('PC2')
 plt.title('PCoA Plot')
 plt.legend(groups)
 
-# Assuming you want to highlight a sample with index 'highlight_idx'
-highlight_sample = pcoa[highlight_idx]
+# highlight the last sample 
+highlight_sample = pcoa[-1]
 plt.scatter(highlight_sample[0], highlight_sample[1], color='black', marker='*', s=100)
 
 plt.show()
