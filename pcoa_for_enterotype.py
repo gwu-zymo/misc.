@@ -4,6 +4,7 @@ import os, sys
 import pandas as pd
 
 data = pd.read_csv(sys.argv[1], sep='\t', index_col=0)
+data = data[1:]
 
 from sklearn.decomposition import PCA
 
