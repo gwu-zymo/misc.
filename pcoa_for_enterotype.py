@@ -12,7 +12,11 @@ from sklearn.decomposition import PCA
 pca = PCA(n_components=2)  # Set the desired number of components
 pcoa = pca.fit_transform(data)
 
-groups = ['Group1', 'Group2', 'Group3'] * 11
+inp = open('entero.out', 'r')
+line = inp.readline()
+ll = line.strip('\n').split('\t')[1].split('|')[1:]
+groups = [pair.split(',')[1] for pair in ll]
+groups[-1] = '4'
 
 import matplotlib.pyplot as plt
 
