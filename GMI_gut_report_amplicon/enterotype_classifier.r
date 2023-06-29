@@ -42,25 +42,5 @@ pam.clustering=function(x,k) { # x is a distance matrix and k the number of clus
 
 data.cluster=pam.clustering(data.dist, k=3)
 
-require(clusterSim)
-nclusters = index.G1(t(data), data.cluster, d = data.dist, centrotypes = "medoids")
-
-nclusters=NULL
-
-for (k in 1:20) { 
-  if (k==1) {
-    nclusters[k]=NA 
-  } else {
-    data.cluster_temp=pam.clustering(data.dist, k)
-    nclusters[k]=index.G1(t(data),data.cluster_temp,  d = data.dist,
-                          centrotypes = "medoids")
-  }
-}
-
-plot(nclusters, type="h", xlab="k clusters", ylab="CH index",main="Optimal number of clusters")
-
-obs.silhouette=mean(silhouette(data.cluster, data.dist)[,3])
-cat(obs.silhouette) #0.1899451
-
 write.csv(data.cluster, 'r_output.txt')
                    
