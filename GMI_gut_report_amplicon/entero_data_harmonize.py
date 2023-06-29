@@ -20,7 +20,6 @@ inp.close()
 genus_list[''][1] = sample
 
 #parse sample file
-sample = sys.argv[1]
 inp = open(f"./{folder}/midog.a.Bac16Sv13/taxa_plots/sorted_otu_L6.txt", 'r')
 total = 0
 line = inp.readline()
