@@ -6,6 +6,7 @@ import pandas as pd
 data = pd.read_csv(sys.argv[1], sep='\t', index_col=0)
 data = data[1:]
 
+#scikit-learn
 from sklearn.decomposition import PCA
 
 pca = PCA(n_components=2)  # Set the desired number of components
