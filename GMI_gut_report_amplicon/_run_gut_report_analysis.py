@@ -5,6 +5,7 @@ import sys, subprocess
 folder = sys.argv[1]
 sample = sys.argv[2]
 
+subprocess.run(['sudo', 'apt', 'install', 'r'])
 subprocess.run(['sudo', 'apt', 'install', 'r-cran-littler', '-y'])
 subprocess.run(['sudo', 'apt', 'update', '-y'])
 subprocess.run(['sudo', 'apt', 'install', 'python3-pip', '-y'])
@@ -19,6 +20,8 @@ subprocess.run(['python3', 'create_abundance_figure.py', f"top_10_bac_{sample}.t
 subprocess.run(['mkdir', 'analysis_results'])
 subprocess.run(f"mv *_{sample}.txt analysis_results", shell=True)
 subprocess.run(f"mv *.png analysis_results", shell=True)
+subprocess.run(['python3', 'entero_data_harmonize.py', folder, sample])
+subprocess.run(['r', 'enterotype_classifier.r'])
 
 
 
