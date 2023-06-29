@@ -28,7 +28,7 @@ plt.figure(figsize=(8, 6))  # Adjust the figure size as per your preference
 
 for i, group in enumerate(set(groups)):
     group_samples = pcoa[np.array(groups) == group]
-    if len(group_data) > 0:
+    if len(group_samples) > 0:
         plt.scatter(group_samples[:, 0], group_samples[:, 1], color=group_colors[i], label=f'Group {group}')
 
 plt.xlabel('PC1')
