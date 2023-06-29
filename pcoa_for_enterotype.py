@@ -20,7 +20,7 @@ groups[-1] = '4'
 
 import matplotlib.pyplot as plt
 
-group_colors = ['red', 'green', 'blue']  # Colors for the three groups
+group_colors = ['pink', 'orange', 'blue', 'black']  
 
 plt.figure(figsize=(8, 6))  # Adjust the figure size as per your preference
 
