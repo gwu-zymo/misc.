@@ -1,7 +1,11 @@
 #take the genus output of our pipeline and integrate into the enterotype data
 #add a column to the 33 samples of the original data file
+#need folder sample_ID; for example: pbg0530.230511.zymo 1235364
 
 import os, sys
+
+folder = sys.argv[1]
+sample = sys.argv[2]
 
 #get a list of genera involved in the analysis
 genus_list = {}
@@ -13,11 +17,11 @@ while line:
   line = inp.readline()
 inp.close()
 
-genus_list[''][1] = sys.argv[1]
+genus_list[''][1] = sample
 
 #parse sample file
 sample = sys.argv[1]
-inp = open('sorted_otu_L6.txt', 'r')
+inp = open(f"./{folder}/midog.a.Bac16Sv13/taxa_plots/sorted_otu_L6.txt", 'r')
 total = 0
 line = inp.readline()
 line = inp.readline()
