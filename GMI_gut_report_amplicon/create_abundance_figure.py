@@ -34,7 +34,7 @@ while line:
   line = inp.readline()
 inp.close()
 
-inp = open('healthy_ratio.txt', 'r')
+inp = open('healthy_ratios.txt', 'r')
 line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
