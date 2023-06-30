@@ -34,6 +34,18 @@ while line:
   line = inp.readline()
 inp.close()
 
+inp = open('healthy_ratio.txt', 'r')
+line = inp.readline()
+while line:
+  ll = line.strip('\n').split('\t')
+  name = ll[0]
+  if name not in healthy_all:
+    numbers = list(map(float, ll[1:]))
+    filtered_numbers = list(filter(lambda num: num <= 10000 and num >= 0.0001, numbers))
+    healthy_all[name] = filtered_numbers
+  line = inp.readline()
+inp.close()
+
 inp = open(sys.argv[1], 'r')
 line = inp.readline()
 while line:
