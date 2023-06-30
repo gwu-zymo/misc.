@@ -5,9 +5,8 @@ import sys, subprocess
 folder = sys.argv[1]
 sample = sys.argv[2]
 
-subprocess.run(['sudo', 'apt', 'install', 'r'])
-subprocess.run(['sudo', 'apt', 'install', 'r-cran-littler', '-y'])
 subprocess.run(['sudo', 'apt', 'update', '-y'])
+subprocess.run(['sudo', 'apt', 'install', 'r-cran-littler', '-y'])
 subprocess.run(['sudo', 'apt', 'install', 'python3-pip', '-y'])
 subprocess.run(['pip3', 'install', 'numpy'])
 subprocess.run(['pip3', 'install', 'matplotlib'])
