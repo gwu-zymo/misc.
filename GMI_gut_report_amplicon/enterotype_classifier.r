@@ -42,5 +42,5 @@ pam.clustering=function(x,k) { # x is a distance matrix and k the number of clus
 
 data.cluster=pam.clustering(data.dist, k=3)
 
-write.csv(data.cluster, 'r_output.txt')
+write.csv(data.cluster, 'sample_r_output.txt')
                    
