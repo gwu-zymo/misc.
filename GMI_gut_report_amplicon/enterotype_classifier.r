@@ -1,7 +1,7 @@
 ###enterotype###
 #Uncomment next two lines if R packages are already installed
-#install.packages("cluster")
-#install.packages("clusterSim")
+install.packages("cluster")
+install.packages("clusterSim")
 library(cluster)
 library(clusterSim)
 
