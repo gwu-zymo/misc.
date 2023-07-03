@@ -1,9 +1,7 @@
 ###enterotype###
 #Uncomment next two lines if R packages are already installed
 install.packages("cluster", lib="./")
-install.packages("clusterSim", lib="./")
 library(cluster)
-library(clusterSim)
 
 #Download the example data and set the working directory
 #setwd('<path_to_working_directory>')
