@@ -21,6 +21,11 @@ while line:
   line = inp.readline()
 inp.close()
 
+oup = open('healthy_phylum.txt', 'w')
+for phylum in phylum_all:
+  numbers = '\t'.join(list(map(str, phylum_all[phylum])))
+  oup.write(f"{phylum}\t{}\n"
+
 for phylum in phylum_all:
   for i in range(0, len(phylum_all[phylum])):
     phylum_all[phylum][i]+=0.00000000000000000001
