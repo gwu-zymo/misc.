@@ -8,8 +8,8 @@ line = inp.readline()
 line = inp.readline()
 while line:
   ll = line.strip('\n').split(',')
-  phylum = ll[0].split(';')[1].lstrip('p__')
-  genus = ll[0].split(';')[-2].lstrip('g__')
+  phylum = ll[0].split(';')[1].lstrip('p__').split('_')[0]
+  genus = ll[0].split(';')[-2].lstrip('g__').split('_')[0]
   if not phylum in phylum_all:
     phylum_all[phylum] = list(map(float, ll[1:]))
   else:
