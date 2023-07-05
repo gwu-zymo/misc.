@@ -146,3 +146,21 @@ except:
   pass
 oup.close() 
 
+inp = open('pathogen.txt', 'r')
+pathogen_list = {}
+line = inp.readline()
+while line:
+  species = line.strip('\n').split('\t')[0].strip()
+  genus =  species.split(' ')[0]
+  pathogen_list[genus] = ''
+  line = inp.readline()
+inp.close()
+
+oup = open(f"pathogen_{sample}.txt", 'w')
+for species in species_abd:
+  genus = species.split(' ')[0]
+  if genus in pathogen_list:
+    oup.write(f"{species}\t{species_abd[species]}\n")
+oup.close()
+
+
