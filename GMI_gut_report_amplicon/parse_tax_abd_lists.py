@@ -160,7 +160,8 @@ oup = open(f"pathogen_{sample}.txt", 'w')
 for species in species_abd:
   genus = species.split(' ')[0]
   if genus in pathogen_list:
-    oup.write(f"{species}\t{species_abd[species]}\n")
+    if species_abd[species] > 0:
+      oup.write(f"{species}\t{species_abd[species]}\n")
 oup.close()
 
 
