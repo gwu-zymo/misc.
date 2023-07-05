@@ -151,15 +151,13 @@ pathogen_list = {}
 line = inp.readline()
 while line:
   species = line.strip('\n').split('\t')[0].strip()
-  genus =  species.split(' ')[0]
-  pathogen_list[genus] = ''
+  pathogen_list[species] = ''
   line = inp.readline()
 inp.close()
 
 oup = open(f"pathogen_{sample}.txt", 'w')
 for species in species_abd:
-  genus = species.split(' ')[0]
-  if genus in pathogen_list:
+  if species in pathogen_list:
     if species_abd[species] > 0:
       oup.write(f"{species}\t{species_abd[species]}\n")
 oup.close()
