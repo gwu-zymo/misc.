@@ -130,13 +130,13 @@ inp.close()
 
 oup = open(f"{sample}_ratios.txt", 'w')
 try:
-  ratio_1 = phylum_abd['Firmicutes']/phylum_abd['Bacteroidetes']
+  ratio_1 = phylum_abd['Firmicutes']/phylum_abd['Bacteroidota']
   name = 'Firmicutes_Bacteroidota'
   oup.write(f"{name}\t{ratio_1}\n")
 except:
   pass
 try:
-  ratio_2 = phylum_abd['Proteobacteria']/phylum_abd['Actinobacteria']
+  ratio_2 = phylum_abd['Proteobacteria']/phylum_abd['Actinobacteriota']
   name = 'Proteobacteria_Actinobacteriota'
   oup.write(f"{name}\t{ratio_2}\n")
 except:
