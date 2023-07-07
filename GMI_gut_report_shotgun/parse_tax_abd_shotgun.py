@@ -115,7 +115,7 @@ for key in sorted_items:
 oup.close()
 
 phylum_abd = {}
-inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum/phylum.txt", 'r')
+inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum/phylum.tsv", 'r')
 line = inp.readline()
 line = inp.readline()
 line = inp.readline()
