@@ -97,8 +97,13 @@ pos = ll.index(sample)
 line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
-  species_name = ' '.join(ll[0].split(';')[-2:len(ll)+1]).replace('g__', '').replace('s__', '')
-  fungi_abd[species_name] = float(ll[pos])
+  long_name = ll[0].split(';')[-1]
+  g = long_name.split(' ')[0].lstrip('s__').split('_')[0]
+  s = long_name.split(' ')[1].split('_')[0]
+  species_name = f"{g} {s}"
+  if not species_name in fungi_abd:
+    fungi_abd[species_name] = 0
+  fungi_abd[species_name]+=float(ll[pos])
   line = inp.readline()
 inp.close()
 
@@ -109,7 +114,56 @@ for key in sorted_items:
     oup.write(f"{key[0]}\t{key[1]}\n")
 oup.close()
 
+phylum_abd = {}
+inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum/phylum.txt", 'r')
+line = inp.readline()
+line = inp.readline()
+line = inp.readline()
+while line:
+  ll = line.strip('\n').split('\t')
+  phylum_name = ll[0].split(';')[-1].replace('p__', '').split('_')[0]
+  if not phylum_name in phylum_abd:
+    phylum_abd[phylum_name] = 0
+  phylum_abd[phylum_name]+=float(ll[pos])
+  line = inp.readline()
+inp.close()
 
+oup = open(f"{sample}_ratios.txt", 'w')
+try:
+  ratio_1 = phylum_abd['Firmicutes']/phylum_abd['Bacteroidetes']
+  name = 'Firmicutes_Bacteroidota'
+  oup.write(f"{name}\t{ratio_1}\n")
+except:
+  pass
+try:
+  ratio_2 = phylum_abd['Proteobacteria']/phylum_abd['Actinobacteria']
+  name = 'Proteobacteria_Actinobacteriota'
+  oup.write(f"{name}\t{ratio_2}\n")
+except:
+  pass
+try:
+  ratio_3 = genus_abd['Prevotella']/genus_abd['Bacteroides']
+  name = 'Prevotella_Bacteroides'
+  oup.write(f"{name}\t{ratio_3}\n")
+except:
+  pass
+oup.close() 
+
+inp = open('pathogen.txt', 'r')
+pathogen_list = {}
+line = inp.readline()
+while line:
+  species = line.strip('\n').split('\t')[0].strip()
+  pathogen_list[species] = ''
+  line = inp.readline()
+inp.close()
+
+oup = open(f"pathogen_{sample}.txt", 'w')
+for species in species_abd:
+  if species in pathogen_list:
+    if species_abd[species] > 0:
+      oup.write(f"{species}\t{species_abd[species]}\n")
+oup.close()
 
 
 
