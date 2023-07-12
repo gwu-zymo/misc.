@@ -21,7 +21,7 @@ subprocess.run(f"mv *_{sample}.txt analysis_results", shell=True)
 subprocess.run(f"mv *.png analysis_results", shell=True)
 subprocess.run(['python3', 'entero_data_harmonize.py', folder, sample])
 subprocess.run(['r', 'enterotype_classifier.r'])
-subprocess.run(f"mv sample_* analysis_results", shell=True)
+subprocess.run(f"mv sample_* {sample}_analysis_results", shell=True)
 
 
 
