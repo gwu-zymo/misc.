@@ -29,11 +29,10 @@ sample_i = ll.index(sample)
 line = inp.readline()
 while line:  
   ll = line.strip('\n').split('\t')
-  genus = ll[0].split(';')[-1].lstrip('g__').split('-')
-  for key in genus:
-    if key in genus_list: 
-      genus_list[key][1]+=float(ll[sample_i])/len(genus)
-      total+=float(ll[sample_i])/len(genus)
+  genus = ll[0].split(';')[-1].replace('g__', '').split('_')[0]
+  if genus in genus_list:
+    genus_list[genus][1]+=float(ll[sample_i])
+    total+=float(ll[sample_i])
   line = inp.readline()
 inp.close()
 
