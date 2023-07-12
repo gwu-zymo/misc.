@@ -128,17 +128,73 @@ while line:
   line = inp.readline()
 inp.close()
 
+import matplotlib.pyplot as plt
+
+def create_barplot(numbers, ratio, filename, label1, label2, color1, color2):
+    labels = ['healthy median', '', 'you', '']
+    x = [0.9, 1.5, 3, 3.6]  # Adjust the x-coordinates
+    colors = [color1, color2, color1, color2]
+    bar_data = list(zip(numbers, labels, x, colors))
+    bar_data.sort(reverse=True)  # Sort the bar data based on the numbers
+    
+    sorted_numbers, sorted_labels, sorted_x, sorted_colors = zip(*bar_data)
+    sorted_numbers = list(sorted_numbers)
+    sorted_labels = list(sorted_labels)
+    sorted_x = list(sorted_x)
+    sorted_colors = list(sorted_colors)
+
+    plt.bar(sorted_x, sorted_numbers, color=sorted_colors)
+    plt.xlabel('')
+    plt.ylabel(ratio)
+    plt.title('')
+
+    x_l = [1.2, 1.2001, 3.3, 3.3001]
+    plt.xticks(x_l, labels)
+    
+    legend_handles = [
+        plt.Rectangle((0, 0), 1, 1, color=color1, label=label1),
+        plt.Rectangle((0, 0), 1, 1, color=color2, label=label2)
+    ]
+    
+    plt.legend(handles=legend_handles)
+    plt.savefig(filename, transparent=True)
+    plt.show()
+
+    print(sorted_numbers)
+    print(sorted_colors)
+
 oup = open(f"{sample}_ratios.txt", 'w')
 try:
   ratio_1 = phylum_abd['Firmicutes']/phylum_abd['Bacteroidota']
   name = 'Firmicutes_Bacteroidota'
   oup.write(f"{name}\t{ratio_1}\n")
+  
+  color1 = 'blue'
+  label1 = 'Firmicutes'
+  color2 = 'orange'
+  label2 = 'Bacteroidetes'
+  filename = f"{sample}_f-b_o.png"
+  ratio = 'firmicutes/bacteroidetes ratio'
+  numbers = [0.585, 0.351, phylum_abd['Firmicutes'], phylum_abd['Bacteroidota']]  # Replace with your two numbers
+  create_barplot(numbers, ratio, filename, label1, label2, color1, color2)
+  plt.clf()
+
 except:
   pass
 try:
   ratio_2 = phylum_abd['Proteobacteria']/phylum_abd['Actinobacteriota']
   name = 'Proteobacteria_Actinobacteriota'
   oup.write(f"{name}\t{ratio_2}\n")
+
+  color1 = 'green'
+  label1 = 'Proteobacteria'
+  color2 = 'yellow'
+  label2 = 'Actinobacteriota'
+  filename = f"{sample}_p-a_o.png"
+  ratio = 'proteobacteria/actinobacteriota ratio'
+  numbers = [0.00858, 0.0168, phylum_abd['Proteobacteria'], phylum_abd['Actinobacteriota']]  # Replace with your two numbers
+  create_barplot(numbers, ratio, filename, label1, label2, color1, color2)
+
 except:
   pass
 try:
