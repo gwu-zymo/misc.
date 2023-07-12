@@ -20,7 +20,7 @@ inp.close()
 genus_list[''][1] = sample
 
 #parse sample file
-inp = open(f"./{folder}/midog.a.Bac16Sv13/taxa_plots/sorted_otu_L6.txt", 'r')
+inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/5.Genus/genus.tsv", 'r')
 total = 0
 line = inp.readline()
 line = inp.readline()
