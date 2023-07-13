@@ -145,7 +145,7 @@ def create_barplot(numbers, ratio, filename, label1, label2, color1, color2):
 
     plt.bar(sorted_x, sorted_numbers, color=sorted_colors)
     plt.xlabel('')
-    plt.ylabel('')
+    plt.ylabel('relative abundance')
     plt.title(ratio)
 
     x_l = [1.2, 1.2001, 3.3, 3.3001]
