@@ -8,7 +8,7 @@ import sys
 folder = sys.argv[1]
 SampleID = sys.argv[2]
 
-HealthyScoreTaxa = pd.read_csv("HealthySpeciesOfIntereste.csv")
+HealthyScoreTaxa = pd.read_csv("HealthySpeciesOfInterest.csv")
 #print(HealthyScoreTaxa)
 
 UserData = pd.read_csv("./%s/00...AllSamples/Prokaryote/AbundanceTables/6.species/species.tsv", sep='\t', %folder)
