@@ -20,5 +20,5 @@ yax = [int(AlphaDivSample), int(AlphaDivMedian)]
 
 mp.figure(figsize=(10,5))
 mp.bar(xax, yax, color = ['blue', 'orange'])
-mp.savefig('model_Alpha_Div.png', bbox_inches='tight', transparent=True)
+mp.savefig('%s_model_Alpha_Div.png' % SampleID, bbox_inches='tight', transparent=True)
 #mp.show
