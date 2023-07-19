@@ -3,17 +3,24 @@ import numpy as np
 import matplotlib.pyplot as mp
 import sys
 
+
 #command: python3 runID sampleID
 folder = sys.argv[1]
 SampleID = sys.argv[2]
 
-HealthyScoreTaxa = pd.read_csv("Species_level_health_predictors_with_revised_names_dups_removed_csv.csv")
+HealthyScoreTaxa = pd.read_csv("HealthySpeciesOfIntereste.csv")
+#print(HealthyScoreTaxa)
+
 UserData = pd.read_csv("./%s/00...AllSamples/Prokaryote/AbundanceTables/6.species/species.tsv", sep='\t', %folder)
+#print(UserData)
 
 maxscore = 250
 compositescore = maxscore
 taxadict = {}
+
 taxadict = UserData.set_index('#OTU ID')['SampleID'].to_dict()
+#print(taxadict)
+
 
 for key in taxadict: 
     for index, row in HealthyScoreTaxa.iterrows():
@@ -35,6 +42,5 @@ for key in taxadict:
   
         #else:
             #print('no match')
-compositescore.to_csv('./%s/%s_HealthScore.csv', %(SampleID,folder)
-
+compositescore.to_csv('./%s_HealthScore.csv' % SampleID)  
 
