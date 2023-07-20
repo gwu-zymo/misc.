@@ -1,4 +1,7 @@
 install.packages("tidyverse", lib="./")
+install.packages("ggplot2", lib="./")
+install.packages("ggrepel", lib="./")
+install.packages("ggforce", lib="./")
 library(tidyverse)
 library(ggplot2)
 library(ggrepel)
