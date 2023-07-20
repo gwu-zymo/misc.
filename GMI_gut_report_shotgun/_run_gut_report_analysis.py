@@ -20,7 +20,7 @@ subprocess.run(['python3', 'create_abundance_figure.py', f"top_10_bac_{sample}.t
 subprocess.run(['python3', 'user_gut_score.py', folder, sample])
 subprocess.run(['python3', 'alpha_div_graph.py', folder, sample])
 subprocess.run(f"mkdir {sample}_analysis_results", shell=True)
-subprocess.run(f"mv *{sample}*.txt {sample}_analysis_results", shell=True)
+subprocess.run(f"mv *{sample}*.* {sample}_analysis_results", shell=True)
 subprocess.run(f"mv *.png {sample}_analysis_results", shell=True)
 subprocess.run(['python3', 'entero_data_harmonize.py', folder, sample])
 subprocess.run(['r', 'enterotype_classifier.r'])
