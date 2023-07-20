@@ -75,7 +75,7 @@ get_abun_df <- function(level, organism, sep="\t"){
 }
 
 #draw the donut plot and save it as png files 
-get_donut_plot <- function(abun_df, output_dir="./gut_report_tmp/patient_plots/" ,output_fname){
+get_donut_plot <- function(abun_df, output_dir="./" ,output_fname){
   donut_plot <- ggplot(abun_df)+ geom_arc_bar(aes(x0 = 0, y0 = 0, r0 = 0.5, r = 1,start = start, end = end, fill = ID),color=NA) + geom_text(aes(x = 1*sin(middle), y = 1*cos(middle),label = label,hjust = hjust, vjust = vjust),size=5)+scale_x_continuous(limits = c(-2, 2),name = "", breaks = NULL, labels = NULL)+scale_y_continuous(limits = c(-1.5, 1.5),name = "", breaks = NULL, labels = NULL)+ coord_fixed() +theme_void() + theme(legend.position = "none")
   output_path <- paste0(output_dir, output_fname)
   ggsave(output_path, plot=donut_plot, device=png, height=7.5, width=10, dpi=300)
