@@ -42,5 +42,5 @@ for key in taxadict:
   
         #else:
             #print('no match')
-compositescore.to_csv('./%s_HealthScore.csv', % SampleID)  
+compositescore.to_csv('./%s_HealthScore.csv' % SampleID)  
 
