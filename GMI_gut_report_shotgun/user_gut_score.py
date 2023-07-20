@@ -8,17 +8,17 @@ import sys
 folder = sys.argv[1]
 SampleID = sys.argv[2]
 
-HealthyScoreTaxa = pd.read_csv("HealthySpeciesOfInterest.csv")
+HealthyScoreTaxa = pd.read_csv("HealthySpeciesOfIntereste.csv")
 #print(HealthyScoreTaxa)
 
-UserData = pd.read_csv("./%s/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/6.Species/species.tsv" % folder)
+UserData = pd.read_csv("./%s/00...AllSamples/Prokaryote/AbundanceTables/6.species/species.tsv", sep='\t', %folder)
 #print(UserData)
 
 maxscore = 250
 compositescore = maxscore
 taxadict = {}
 
-taxadict = UserData.set_index('#OTU ID')['SampleID'].to_dict()
+taxadict = UserData.set_index('#OTU ID')[SampleID].to_dict()
 #print(taxadict)
 
 
@@ -42,5 +42,5 @@ for key in taxadict:
   
         #else:
             #print('no match')
-compositescore.to_csv('./%s_HealthScore.csv' % SampleID)  
+compositescore.to_csv('./%s_analysis_results/%s_HealthScore.csv', %(SampleID,SampleID)  
 
