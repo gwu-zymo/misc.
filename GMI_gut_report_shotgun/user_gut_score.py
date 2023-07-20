@@ -11,8 +11,9 @@ SampleID = sys.argv[2]
 HealthyScoreTaxa = pd.read_csv("HealthySpeciesOfInterest.csv")
 #print(HealthyScoreTaxa)
 
-UserData = pd.read_csv("./%s/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/6.Species/species.tsv" % folder)
-#print(UserData)
+UserData = pd.read_csv("./%s/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/6.Species/species.tsv" % folder, sep = '\t', skiprows = 1 )
+#UserData = UserData.tail(-1)
+print(UserData)
 
 maxscore = 250
 compositescore = maxscore
@@ -22,7 +23,7 @@ taxadict = UserData.set_index('#OTU ID')[SampleID].to_dict()
 #print(taxadict)
 
 
-for key in taxadict: 
+for key in taxadict:
     for index, row in HealthyScoreTaxa.iterrows():
         i = 0
         if key == row[0]:
@@ -39,8 +40,9 @@ for key in taxadict:
                 i = -0.25
             compositescore = compositescore + i
             #print(compositescore)
-  
+
         #else:
             #print('no match')
-compositescore.to_csv('./%s_HealthScore.csv' % SampleID)  
-
+oup = open('%s_HealthScore.csv' % SampleID, 'w')
+oup.write(str(compositescore))
+oup.close()
