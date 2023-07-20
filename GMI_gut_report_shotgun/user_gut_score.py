@@ -11,7 +11,7 @@ SampleID = sys.argv[2]
 HealthyScoreTaxa = pd.read_csv("HealthySpeciesOfInterest.csv")
 #print(HealthyScoreTaxa)
 
-UserData = pd.read_csv("./%s/00...AllSamples/Prokaryote/AbundanceTables/6.species/species.tsv" % folder)
+UserData = pd.read_csv("./%s/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/6.Species/species.tsv" % folder)
 #print(UserData)
 
 maxscore = 250
