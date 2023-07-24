@@ -5,7 +5,7 @@ import numpy as np
 import os, sys
 
 healthy_all = {}
-inp = open('Healthy_Gut_Cohort_Species_Taxa_V1.csv', 'r')
+inp = open('Healthy_Gut_Cohort_Species_Taxa_V2.csv', 'r')
 line = inp.readline()
 line = inp.readline()
 while line:
