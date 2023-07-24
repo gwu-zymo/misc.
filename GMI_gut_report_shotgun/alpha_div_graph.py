@@ -8,7 +8,7 @@ import sys
 folder = sys.argv[1]
 SampleID = sys.argv[2]
 
-AlphaDivMedian = 232
+AlphaDivAvg = 232
 AlphaDivSample = 0
 
 sample_species_count = pd.read_csv('./%s/00...AllSamples.illumina.pe/Prokaryote/AlphaDiversity/6.Species/ObservedSp.csv' % folder)
@@ -17,7 +17,7 @@ sample_species_count = pd.read_csv('./%s/00...AllSamples.illumina.pe/Prokaryote/
 AlphaDivSample = sample_species_count.columns[1]
 print(AlphaDivSample)
 xax = ['Your Sample', 'Healthy Sample']
-yax = [int(AlphaDivSample), int(AlphaDivMedian)]
+yax = [int(AlphaDivSample), int(AlphaDivAvg)]
 
 mp.figure(figsize=(10,5))
 mp.bar(xax, yax, color = ['blue', 'orange'])
