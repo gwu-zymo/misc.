@@ -2,11 +2,13 @@
 # pip install pillow
 
 from PIL import Image
-import os
+import os, sys
 
-folder_path = './images/figures_for_report'  # Replace with the path to your folder
+sampleID = sys.argv[1]
 
-output_folder = 'images/figures_for_report'  # Replace with the path to the output folder
+folder_path = './%s_analysis_results' % sampleID  # Replace with the path to your folder
+
+output_folder = './%s_analysis_results' % sampleID  # Replace with the path to the output folder
 os.makedirs(output_folder, exist_ok=True)
 
 for filename in os.listdir(folder_path):
