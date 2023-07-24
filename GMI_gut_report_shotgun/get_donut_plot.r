@@ -6,11 +6,10 @@ library(ggplot2)
 library(ggrepel)
 library(ggforce)
 
-#place this script at the same level with the directory containing all SG outputs (e.g. 00...AllSamples.illumina.pe)
-#to run this script from the command line, enter "Rscript get_donut_plot.R" (no argument required)
-#get the name of dir that contains data
-#always use the 00...AllSamples group
-data_dirname <- dir(path=".", pattern="^00", recursive=FALSE)
+#to run this script from the command line, enter "Rscript get_donut_plot.R runID" (no argument required)
+args <- commandArgs(trailingOnly = TRUE)
+runID <- args[1]
+data_dirname <- dir(path=sprintf("./%s/", runID), pattern="^00", recursive=FALSE)
 
 #get the fname of the relative abunance table first and check if it exist
 #for now, level only takes two values: phylum or family
