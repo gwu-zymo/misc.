@@ -6,10 +6,11 @@ library(ggplot2)
 library(ggrepel)
 library(ggforce)
 
-#to run this script from the command line, enter "Rscript get_donut_plot.R runID" (no argument required)
+#to run this script from the command line, enter "Rscript get_donut_plot.R run_ID sample_ID" (2 positional arguments required, first being the run_ID, second being the sample_ID)
 args <- commandArgs(trailingOnly = TRUE)
-runID <- args[1]
-data_dirname <- sprintf("./%s/00...AllSamples.illumina.pe", runID)
+run_ID <- args[1]
+sample_ID <- args[2]
+data_dirname <- sprintf("./%s/00...AllSamples.illumina.pe", run_ID)
 
 #get the fname of the relative abunance table first and check if it exist
 #for now, level only takes two values: phylum or family
@@ -40,7 +41,9 @@ get_abun_df <- function(level, organism, sep="\t"){
   abun_df <- read.csv(abun_fname,  sep=sep, skip = 2, header = F)
   colnames(abun_df) <- abun_df_headers
   names(abun_df)[1] <- "ID"
-  sample_ID <- names(abun_df)[2]
+  #filter out only the ID column and the column whose colname is the sample_ID arg
+  abun_df <-data.frame(a=abun_df$ID, b=abun_df[,sample_ID])
+  colnames(abun_df) <- c("ID", sample_ID)
   if(level == "phylum"){
     abun_df <- separate(abun_df, ID, into=c("d","p"),sep=";",remove=TRUE)
     abun_df$percentage <- paste0(round(abun_df[,sample_ID]*100,2),"%")
@@ -83,17 +86,17 @@ get_donut_plot <- function(abun_df, output_dir="./" ,output_fname){
 #prokaryote phylum
 if(file.exists(get_abun_fname("phylum", "prokaryote"))){
   pro_p_df <- get_abun_df("phylum", "prokaryote")
-  get_donut_plot(abun_df=pro_p_df, output_fname="pro_p_donut_plot.png")
+  get_donut_plot(abun_df=pro_p_df, output_fname=paste0(sample_ID, "_pro_p_donut_plot.png"))
 }
 
 #prokaryote family
 if(file.exists(get_abun_fname("family", "prokaryote"))){
   pro_f_df <- get_abun_df("family", "prokaryote")
-  get_donut_plot(abun_df=pro_f_df, output_fname="pro_f_donut_plot.png")
+  get_donut_plot(abun_df=pro_f_df, output_fname=paste0(sample_ID, "_pro_f_donut_plot.png"))
 }
 
 #eukaryote family
 if(file.exists(get_abun_fname("family", "eukaryote"))){
   euk_f_df <- get_abun_df("family", "eukaryote")
-  get_donut_plot(abun_df=euk_f_df, output_fname="euk_f_donut_plot.png")
+  get_donut_plot(abun_df=euk_f_df, output_fname=paste0(sample_ID, "_euk_f_donut_plot.png"))
 }
