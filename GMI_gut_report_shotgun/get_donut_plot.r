@@ -9,7 +9,7 @@ library(ggforce)
 #to run this script from the command line, enter "Rscript get_donut_plot.R runID" (no argument required)
 args <- commandArgs(trailingOnly = TRUE)
 runID <- args[1]
-data_dirname <- dir(path=sprintf("./%s/", runID), pattern="^00", recursive=FALSE)
+data_dirname <- sprintf("./%s/00...AllSamples.illumina.pe", runID)
 
 #get the fname of the relative abunance table first and check if it exist
 #for now, level only takes two values: phylum or family
@@ -17,10 +17,10 @@ data_dirname <- dir(path=sprintf("./%s/", runID), pattern="^00", recursive=FALSE
 get_abun_fname <- function(level, organism){
   #get search_dir
   if(organism == "prokaryote"){
-    search_dir <- paste0("./", data_dirname, "/Prokaryote/AbundanceTables/")
+    search_dir <- paste0(data_dirname, "/Prokaryote/AbundanceTables/")
   }
   else if(organism == "eukaryote"){
-    search_dir <- paste0("./", data_dirname, "/Eukaryote/AbundanceTables/")
+    search_dir <- paste0(data_dirname, "/Eukaryote/AbundanceTables/")
   }
   #get relative abundance table filename
   if(level == "phylum"){
