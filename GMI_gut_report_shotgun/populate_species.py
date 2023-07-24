@@ -243,10 +243,10 @@ bacteria_txt_file_path = f'./{sampleID}_analysis_results/top_10_bac_{sampleID}.t
 fungal_txt_file_path = f'./{sampleID}_analysis_results/top_10_fun_{sampleID}.txt'
 
 
-patient_tsv_file = './patient_input_files/patient_info.txt'
-enterotype_file_path = './analysis_results/sample_r_output.txt'
+patient_tsv_file = '../patient_info.txt'
+enterotype_file_path = f'./{sampleID}_analysis_results/sample_r_output.txt'
 
-range_file_path = './patient_input_files/Healthy_pathway.txt'
+range_file_path = '../References/Healthy_pathway.txt'
 
 # Read the TSV file and set as variable to pass into the table function
 pathogen_tsv_data = read_txt_file(pathogen_tsv_file_path)
