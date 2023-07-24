@@ -11,6 +11,7 @@ subprocess.run(['sudo', 'apt', 'install', 'python3-pip', '-y'])
 subprocess.run(['pip3', 'install', 'numpy'])
 subprocess.run(['pip3', 'install', 'matplotlib'])
 subprocess.run(['pip3', 'install', 'pandas'])
+subprocess.run(f"sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev -y", shell=True)
 
 subprocess.run(['unzip', f"{folder}.zip"])
 subprocess.run(['python3', 'parse_tax_abd_lists.py', folder, sample])
