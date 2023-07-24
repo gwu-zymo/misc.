@@ -12,7 +12,7 @@ output_folder = './%s_analysis_results' % sampleID  # Replace with the path to t
 os.makedirs(output_folder, exist_ok=True)
 
 for filename in os.listdir(folder_path):
-    if filename.endswith('.png'):
+    if filename.endswith('_violin_plot.png'):
         image_path = os.path.join(folder_path, filename)
         image = Image.open(image_path)
         
