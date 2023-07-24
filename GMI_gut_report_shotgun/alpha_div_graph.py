@@ -8,7 +8,7 @@ import sys
 folder = sys.argv[1]
 SampleID = sys.argv[2]
 
-AlphaDivMedian = 229
+AlphaDivMedian = 232
 AlphaDivSample = 0
 
 sample_species_count = pd.read_csv('./%s/00...AllSamples.illumina.pe/Prokaryote/AlphaDiversity/6.Species/ObservedSp.csv' % folder)
