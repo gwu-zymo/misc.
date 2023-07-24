@@ -13,6 +13,7 @@ subprocess.run(['pip3', 'install', 'matplotlib'])
 subprocess.run(['pip3', 'install', 'pandas'])
 subprocess.run(f"sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev -y", shell=True)
 
+subprocess.run(f"Rscript get_donut_plot.r {folder}", shell=True)
 subprocess.run(['unzip', f"{folder}.zip"])
 subprocess.run(['python3', 'parse_tax_abd_lists.py', folder, sample])
 subprocess.run(['python3', 'create_abundance_figure.py', f"keystone_{sample}.txt"])
