@@ -1,17 +1,22 @@
 import csv
 import re
+import sys
+import pandas as pd
 
+# sampleID = '5BW' 
+sampleID = sys.argv[1]
+folder = sys.argv[2]
 # read csv file
 
 def read_csv_file(file_path):
     with open(file_path, 'r') as file:
         # create variable to read file
-        reader = csv.DictReader(file, delimiter=',')
-        rows = list(reader)
+        reader = csv.reader(file)
+        row = list(reader)
         # print(rows)
-        return rows
+        return row
 
-def read_phylum_file(phylum_file_path):
+def read_healthy_phylum_file(phylum_file_path):
     key_value_pairs = {}
     with open(phylum_file_path, 'r') as file:
         reader = csv.reader(file, delimiter=',')
@@ -26,13 +31,27 @@ def read_phylum_file(phylum_file_path):
                 value = float(row[2])
                 key_value_pairs[key] = value
         return(key_value_pairs)
+
+def read_sample_phylum_file(file_path):
+    df = pd.read_csv(file_path, sep='\t', skiprows=1)
+    
+    nameArray = ["d__Bacteria;p__Bacteroidota", "d__Bacteria;p__Firmicutes", "d__Bacteria;p__Actinobacteriota", "d__Bacteria;p__Proteobacteria", "d__Bacteria;p__Verrucomicrobiota"]
+    sample_key_value_pair = {}
+    # print(df)
+    for name in nameArray:
+        sample_to_find = name 
+        filtered_rows = df[df['#OTU ID'] == sample_to_find]
+        sample_value = filtered_rows[sampleID].values[0]
         
+        sample_key_value_pair[name] = sample_value
+        
+    return sample_key_value_pair
 
 # edit css content
 def edit_css_score (score_data):
     score = score_data[0]
-    userScore = int(score['UserScore'])
-    maxScore = int(score['MaxScore'])
+    userScore = float(score[0])
+    maxScore = 250
     
     # margin for bar shift 0.02 is 0% and 0.97 is 100%
     
@@ -52,7 +71,8 @@ def generate_phylum_graph(sample_phylum_data, healthy_phylum_data):
     
     import math
     
-    for name in nameArray:
+    for name in nameArray:   
+        
         # multiply percentage by 0.25 for scaling relative to healthy sample(add 50 because healthy starts at 50% in css)
         sample_percentage = (((((sample[name]-healthy[name])/healthy[name])) * 100 * 0.25)+ 50)
         sample_percentage = math.floor(sample_percentage)
@@ -68,17 +88,16 @@ def generate_phylum_graph(sample_phylum_data, healthy_phylum_data):
 
 
     # file path
-score_file_path = './patient_input_files/Overallscore.csv'
-
-healthy_phylum_path = './patient_input_files/healthy_phylum.csv'        
-sample_phylum_path = './patient_input_files/sample_phylum.csv'
+score_file_path = f'./{sampleID}_analysis_results/{sampleID}_HealthScore.csv'
+healthy_phylum_path = f'./References/HealthyProkaryotePhylaOfInterestSummary.csv'        
+sample_phylum_path = f'.{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum.tsv'
 
 
 # read the file and store in variable
 score_data = read_csv_file(score_file_path)
 
-healthy_phylum_data = read_phylum_file(healthy_phylum_path)
-sample_phylum_data = read_phylum_file(sample_phylum_path)
+healthy_phylum_data = read_healthy_phylum_file(healthy_phylum_path)
+sample_phylum_data = read_sample_phylum_file(sample_phylum_path)
 
 # run function to edit file that was read to generate css edits
 sample_score = edit_css_score(score_data)
