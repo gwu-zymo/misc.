@@ -90,7 +90,7 @@ def generate_phylum_graph(sample_phylum_data, healthy_phylum_data):
     # file path
 score_file_path = f'./{sampleID}_analysis_results/{sampleID}_HealthScore.csv'
 healthy_phylum_path = f'../References/HealthyProkaryotePhylaOfInterestSummary.csv'        
-sample_phylum_path = f'./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum.tsv'
+sample_phylum_path = f'./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum/phylum.tsv'
 
 
 # read the file and store in variable
