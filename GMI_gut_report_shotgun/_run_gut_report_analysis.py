@@ -31,3 +31,4 @@ subprocess.run(f"mv sample_* {sample}_analysis_results", shell=True)
 
 subprocess.run(f"python3 rotate_figures.py {sample}", shell=True)
 subprocess.run(f"python3 populate_species.py {sample}", shell=True)
+subprocess.run(f"python3 edit_css.py {sample} {folder}", shell=True)
