@@ -29,5 +29,5 @@ subprocess.run(['python3', 'entero_data_harmonize.py', folder, sample])
 subprocess.run(['r', 'enterotype_classifier.r'])
 subprocess.run(f"mv sample_* {sample}_analysis_results", shell=True)
 
-subprocess.run(f"python3 rotate_figures.py {sampleID}", shell=True)
+subprocess.run(f"python3 rotate_figures.py {sample}", shell=True)
 
