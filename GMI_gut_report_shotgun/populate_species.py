@@ -111,8 +111,8 @@ def generate_bacterial_table(bacteria_tsv_data, pathogen_tsv_data, keystone_tsv_
     
     # image reference for HTML
     # file path
-    pathogen_img = '<img src="./images/graphs/page7/pathogen.svg" alt="pathogen" width="20px">'
-    keystone_img = '<img src="./images/graphs/page7/keystone.svg" alt="keystone" width="20px">'
+    pathogen_img = '<img src="../References/pathogen.png" alt="pathogen" width="20px">'
+    keystone_img = '<img src="../References/keystone2.png" alt="keystone" width="20px">'
     
     table_body = ''
     for index, data in enumerate(bacteria):
@@ -124,7 +124,7 @@ def generate_bacterial_table(bacteria_tsv_data, pathogen_tsv_data, keystone_tsv_
         elif species_name in keystone_name:
             table_body += f'<tr><td>{data[0]}</td><td>{keystone_img}</td><td>{float(data[1]):.4f}</td></tr>'
         else:
-            table_body += f'<tr><td></td><td></td><td></td></tr>'
+            table_body += f'<tr><td>{data[0]}</td><td></td><td>{float(data[1]):.4f}</td></tr>'
     for _ in range(index + 1, 12):
         table_body += '<tr><td></td><td></td><td></td></tr>'
     return table_body
@@ -146,12 +146,28 @@ def generate_fungal_table(tsv_data):
         table_body += '<tr><td></td><td></td></tr>'
     return table_body    
         
-            
+######################################
+#~~~~GENERATE PATIENT INFO RATIOS~~~~#
+######################################
+
 def generate_patient_info(tsv_data):
     data = tsv_data[0]
     info_body= f'<p>Patient: {data["Patient Name"]}<br> Sex: {data["Sex"]}<br> DOB: {data["DOB"]}<br> Sample ID: {data["SampleID"]}</p>'
     return info_body
 
+def generate_metabolic_sample_ratio(ratio_data): 
+    key_value_pair = {}
+    
+    for row in ratio_data:
+        key = row[0]
+        value = "{:.2f}".format(float(row[1]))
+        key_value_pair[key] = float(value)
+        
+    firmicutes_ratio = f'<div class="ratio1"><p>{key_value_pair["Firmicutes_Bacteroidota"]}</p> </div>'
+    proteobacteria_ratio = f'<div class="ratio2"><p>{key_value_pair["Proteobacteria_Actinobacteriota"]}</p> </div>'
+    sample_ratio = firmicutes_ratio + proteobacteria_ratio
+    
+    return sample_ratio
 
 ####################################
 #~~~~GENERATE ENTEROTYPE NUMBER~~~~#
@@ -211,17 +227,15 @@ def read_generate_metabolic_values(file_path):
         butyrate = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['butyrate'])]))
         acetate = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['acetate'])]))
         propionate = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['propionate'])]))
-        prancreatic_elastase = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['short chain fatty acids'])]))
-        calprotectin = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['short chain fatty acids'])]))
+        inflammation = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['inflammation'])]))
         vitamin_synthesis = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['vitamin synthesis'])]))
         folate = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['folate'])]))
         riboflavin = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['riboflavin'])]))
         b12 = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['B12'])]))
         bile_acid = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['bile acid'])]))
         
-        metabolite_array = [short_chain_fatty_acid, butyrate, acetate, propionate, prancreatic_elastase, calprotectin, vitamin_synthesis, folate, riboflavin, b12, bile_acid]
+        metabolite_array = [short_chain_fatty_acid, butyrate, acetate, propionate, inflammation, vitamin_synthesis, folate, riboflavin, b12, bile_acid]
         return metabolite_array
-
 
 
 ####################################
@@ -230,33 +244,28 @@ def read_generate_metabolic_values(file_path):
 
 # Specify the path to TSV file
     # file path
-    pathogen_tsv_file_path = sys.argv[1]
-    
-# pathogen_tsv_file_path = f'./{sampleID}_analysis_results/pathogen_5BW.txt'
-# keystone_txt_file_path = f'./{sampleID}_analysis_results/keystone_1235364.txt'
-# bacteria_txt_file_path = f'./{sampleID}_analysis_results/top_10_bac_1235364.txt'
-# fungal_txt_file_path = f'./{sampleID}_analysis_results/top_10_fun_1235364.txt'
-
-pathogen_tsv_file_path = f'./{sampleID}_analysis_results/pathogen_{sampleID}.txt'
+pathogen_txt_file_path = f'./{sampleID}_analysis_results/pathogen_{sampleID}.txt'
 keystone_txt_file_path = f'./{sampleID}_analysis_results/keystone_{sampleID}.txt'
 bacteria_txt_file_path = f'./{sampleID}_analysis_results/top_10_bac_{sampleID}.txt'
 fungal_txt_file_path = f'./{sampleID}_analysis_results/top_10_fun_{sampleID}.txt'
 
 
-patient_tsv_file = '../patient_info.txt'
+patient_txt_file = '../patient_info.txt'
 enterotype_file_path = f'./{sampleID}_analysis_results/sample_r_output.txt'
+metabolite_healthy_range_file_path = '../References/Healthy_pathway.txt'
 
-range_file_path = '../References/Healthy_pathway.txt'
+metabolic_sample_ratio_file_path = f'./{sampleID}_analysis_results/{sampleID}_ratios.txt'
 
 # Read the TSV file and set as variable to pass into the table function
-pathogen_tsv_data = read_txt_file(pathogen_tsv_file_path)
+pathogen_tsv_data = read_txt_file(pathogen_txt_file_path)
 keystone_tsv_data = read_txt_file(keystone_txt_file_path)
 bacteria_tsv_data = read_txt_file(bacteria_txt_file_path)
 fungal_tsv_data = read_txt_file(fungal_txt_file_path)
 
-patient_tsv_data = read_patient_tsv_file(patient_tsv_file)
+patient_tsv_data = read_patient_tsv_file(patient_txt_file)
 enterotype_out_data = read_out_file(enterotype_file_path)
 
+sample_ratio_data = read_txt_file(metabolic_sample_ratio_file_path)
 
 #############################################################
 #~~~~GENERATE GRAPHS FUNCTION CALLS DEFINED AS VARIABLES~~~~#
@@ -272,7 +281,9 @@ patient_info = generate_patient_info(patient_tsv_data)
 enterotype_number = generate_enterotype_number(enterotype_out_data)
 enterotype_description = generate_enterotype_description(enterotype_out_data)
 
-metabolite = read_generate_metabolic_values(range_file_path)
+metabolite = read_generate_metabolic_values(metabolite_healthy_range_file_path)
+
+sample_ratio = generate_metabolic_sample_ratio(sample_ratio_data)
 
 # Read the HTML file
     # file path
@@ -291,7 +302,7 @@ patient_info_html_content = '<!-- Patient Info -->'
 enterotype_number_html_content = '<!-- Generated enterotype number -->'
 enterotype_description_html_content = '<!-- Generated enterotype description -->'
 
-
+sample_ratio_html_content = '<!-- Generate Sample Ratio -->'
 #####~MODIFIED CONTENT IN HTML~#####
  
 # Replace the table body content in the HTML with the generated table
@@ -303,6 +314,9 @@ modified_html_content = modified_html_content.replace(fungal_html_content, funga
 modified_html_content = modified_html_content.replace(patient_info_html_content, patient_info)
 modified_html_content = modified_html_content.replace(enterotype_number_html_content, enterotype_number)
 modified_html_content = modified_html_content.replace(enterotype_description_html_content, enterotype_description)
+
+# Add the sample ratio 
+modified_html_content = modified_html_content.replace(sample_ratio_html_content, sample_ratio)
 
 # Modify Content for images generated from analysis results 
 modified_html_content = modified_html_content.replace("[sampleID]", sampleID_string)
