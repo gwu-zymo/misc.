@@ -326,13 +326,12 @@ modified_html_content = modified_html_content.replace('~Short Chain Fatty Acid~'
 modified_html_content = modified_html_content.replace('~Butyrate~', metabolite[1])
 modified_html_content = modified_html_content.replace('~Acetate~', metabolite[2])
 modified_html_content = modified_html_content.replace('~Propionate~', metabolite[3])
-modified_html_content = modified_html_content.replace('~Pancreatic Elastase~', metabolite[4])
-modified_html_content = modified_html_content.replace('~Calprotectin~', metabolite[5])
-modified_html_content = modified_html_content.replace('~Vitamin Synthesis~', metabolite[6])
-modified_html_content = modified_html_content.replace('~Folate~', metabolite[7])
-modified_html_content = modified_html_content.replace('~Riboflavin~', metabolite[8])
-modified_html_content = modified_html_content.replace('~B12~', metabolite[9])
-modified_html_content = modified_html_content.replace('~Bile Acid~', metabolite[10])
+modified_html_content = modified_html_content.replace('~Inflammation~', metabolite[4])
+modified_html_content = modified_html_content.replace('~Vitamin Synthesis~', metabolite[5])
+modified_html_content = modified_html_content.replace('~Folate~', metabolite[6])
+modified_html_content = modified_html_content.replace('~Riboflavin~', metabolite[7])
+modified_html_content = modified_html_content.replace('~B12~', metabolite[8])
+modified_html_content = modified_html_content.replace('~Bile Acid~', metabolite[9])
 
 
 # replace metabolic html content
