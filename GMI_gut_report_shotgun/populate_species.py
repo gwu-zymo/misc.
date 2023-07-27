@@ -251,19 +251,27 @@ def read_generate_metabolic_values(file_path):
         # convert string values from metabolites into floats from key value pairs
         # takes the median of all the float values
         # truncates the median value after 3 decimals (:.3f)
-        short_chain_fatty_acid = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['short chain fatty acids'])]))
-        butyrate = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['butyrate'])]))
-        acetate = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['acetate'])]))
-        propionate = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['propionate'])]))
-        inflammation = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['inflammation'])]))
-        vitamin_synthesis = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['vitamin synthesis'])]))
-        folate = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['folate'])]))
-        riboflavin = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['riboflavin'])]))
-        b12 = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['B12'])]))
-        bile_acid = "{:.5f}".format(statistics.median([float(num) for num in (key_value_pair['bile acid'])]))
+        short_chain_fatty_acid = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['short chain fatty acids'])]))
+        butyrate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['butyrate'])]))
+        acetate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['acetate'])]))
+        propionate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['propionate'])]))
+        inflammation = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['inflammation'])]))
+        vitamin_synthesis = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['vitamin synthesis'])]))
+        folate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['folate'])]))
+        riboflavin = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['riboflavin'])]))
+        b12 = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['B12'])]))
+        bile_acid = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['bile acid'])]))
         
         metabolite_array = [short_chain_fatty_acid, butyrate, acetate, propionate, inflammation, vitamin_synthesis, folate, riboflavin, b12, bile_acid]
-        return metabolite_array
+        
+        metabolite_value_check = []
+        for metabolite in metabolite_array:
+            if metabolite < 0.01:
+                metabolite_value_check.append("< 0.01")
+            else:
+                metabolite_value_check.append(metabolite)
+        
+        return metabolite_value_check
 
 
 ####################################
