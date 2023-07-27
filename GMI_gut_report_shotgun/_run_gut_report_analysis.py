@@ -37,8 +37,8 @@ subprocess.run(f"python3 edit_css.py {sample} {folder}", shell=True)
 subprocess.run(f"mv output.html {sample}_output.html", shell=True)
 #subprocess.run(f"zip {sample}_results.zip ../../shotgun_wrapper/* -r", shell=True)
 #subprocess.run(f"mv *.zip ../../", shell=True)
-subprocess.run(f"mkdir {sample}_results", shell=True)
-subprocess.run(f"mv {sample}
+subprocess.run(f"mkdir ~/{sample}_results", shell=True)
+subprocess.run(f"mv {sample}_analysis_results ~/{sample}_results", shell=True)
 
 
 
