@@ -189,9 +189,9 @@ try:
   color1 = 'green'
   label1 = 'Proteobacteria'
   color2 = 'yellow'
-  label2 = 'Actinobacteriota'
+  label2 = 'Actinobacteria'
   filename = f"{sample}_p-a_o.png"
-  ratio = 'proteobacteria/actinobacteriota ratio'
+  ratio = 'Proteobacteria/Actinobacteria ratio'
   numbers = [0.00858, 0.0168, phylum_abd['Proteobacteria'], phylum_abd['Actinobacteriota']]  # Replace with your two numbers
   create_barplot(numbers, ratio, filename, label1, label2, color1, color2)
 
