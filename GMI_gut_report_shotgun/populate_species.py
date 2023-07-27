@@ -182,7 +182,12 @@ def generate_patient_info(tsv_data):
 
     patient = patient_data[0]
     info_body= f'<p>Patient: {patient["Patient Name"]}<br> Sex: {patient["Sex"]}<br> DOB: {patient["DOB"]}<br> Sample ID: {patient["SampleID"]}</p>'
-    return info_body
+    
+    if patient == []:
+        print('No patient ID found')
+    else:
+        print("Patient ID successfully found")
+        return info_body
 
 def generate_metabolic_sample_ratio(ratio_data): 
     key_value_pair = {}
@@ -251,7 +256,7 @@ def read_generate_metabolic_values(file_path):
         # convert string values from metabolites into floats from key value pairs
         # takes the median of all the float values
         # truncates the median value after 3 decimals (:.3f)
-        short_chain_fatty_acid = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['short chain fatty acids'])]))
+        short_chain_fatty_acid ="{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['short chain fatty acids'])]))
         butyrate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['butyrate'])]))
         acetate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['acetate'])]))
         propionate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['propionate'])]))
@@ -263,9 +268,13 @@ def read_generate_metabolic_values(file_path):
         bile_acid = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['bile acid'])]))
         
         metabolite_array = [short_chain_fatty_acid, butyrate, acetate, propionate, inflammation, vitamin_synthesis, folate, riboflavin, b12, bile_acid]
+        metabolite_array_float = []
+        for metabolite in metabolite_array:
+            metabolite_float = float(metabolite)
+            metabolite_array_float.append(metabolite_float)
         
         metabolite_value_check = []
-        for metabolite in metabolite_array:
+        for metabolite in metabolite_array_float:
             if metabolite < 0.01:
                 metabolite_value_check.append("< 0.01")
             else:
