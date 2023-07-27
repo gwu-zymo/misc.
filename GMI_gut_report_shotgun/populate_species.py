@@ -256,6 +256,7 @@ def read_generate_metabolic_values(file_path):
         # convert string values from metabolites into floats from key value pairs
         # takes the median of all the float values
         # truncates the median value after 3 decimals (:.3f)
+        
         short_chain_fatty_acid ="{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['short chain fatty acids'])]))
         butyrate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['butyrate'])]))
         acetate = "{:.2f}".format(statistics.median([float(num) for num in (key_value_pair['acetate'])]))
@@ -278,7 +279,7 @@ def read_generate_metabolic_values(file_path):
             if metabolite < 0.01:
                 metabolite_value_check.append("< 0.01")
             else:
-                metabolite_value_check.append(metabolite)
+                metabolite_value_check.append(str(metabolite))
         
         return metabolite_value_check
 
