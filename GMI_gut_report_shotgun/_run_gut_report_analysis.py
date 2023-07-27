@@ -32,10 +32,13 @@ subprocess.run(f"mv sample_* {sample}_analysis_results", shell=True)
 subprocess.run(f"python3 rotate_figures.py {sample}", shell=True)
 subprocess.run(f"python3 populate_species.py {sample}", shell=True)
 subprocess.run(f"python3 edit_css.py {sample} {folder}", shell=True)
-subprocess.run(f"rm -r {folder} cluster", shell=True)
-subprocess.run(f"rm *.zip *.py *.r", shell=True)
+#subprocess.run(f"rm -r {folder} cluster", shell=True)
+#subprocess.run(f"rm *.zip *.py *.r", shell=True)
 subprocess.run(f"mv output.html {sample}_output.html", shell=True)
-subprocess.run(f"zip {sample}_results.zip ../../shotgun_wrapper/* -r", shell=True)
-subprocess.run(f"mv *.zip ../../", shell=True)
+#subprocess.run(f"zip {sample}_results.zip ../../shotgun_wrapper/* -r", shell=True)
+#subprocess.run(f"mv *.zip ../../", shell=True)
+subprocess.run(f"mkdir {sample}_results", shell=True)
+subprocess.run(f"mv {sample}
+
 
 
