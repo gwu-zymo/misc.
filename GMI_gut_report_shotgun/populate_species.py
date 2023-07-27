@@ -1,9 +1,7 @@
 import sys
 import csv
 
-
 # sampleID = 123
-
 
 sampleID= sys.argv[1]
 # projectID = sys.argv[1]
@@ -49,13 +47,13 @@ def read_out_file (out_file_path):
         # returns enterotype number as '1', '2' or '3'
         return enterotype
 
-
 ####################################
 #~~~~GENERATE TABLES OF SPECIES~~~~#
 ####################################
 
 def generate_pathogen_table(data):
     table_body = ''
+    index = 0
     for index, row in enumerate(data):
         if index >= 10:
             break
@@ -70,7 +68,7 @@ def generate_pathogen_table(data):
         else:
             dot_class = ''
         dot_html = f'<span class="dot {dot_class}"></span>'
-        table_body += f'<tr><td>{row[0]}</td><td>{dot_html}</td><td>{row[1]}%</td></tr>'
+        table_body += f'<tr><td>{row[0]}</td><td>{dot_html}</td><td>{row[1]}</td></tr>'
     #Add extra rows for empty tsvdata
     for _ in range(index + 1, 10):
         table_body += '<tr><td></td><td></td><td></td></tr>'
@@ -86,10 +84,14 @@ def generate_keystone_table(tsv_data):
     species.sort(key = lambda x: x[1], reverse=True)
 
     table_body = ''
+    index = 0
     for index, row in enumerate(species):
         if index >= 10:
             break 
-        table_body += f'<tr><td>{row[0]}</td><td>{(row[1]):.4f}</td></tr>'
+        if row[1] < 0.01:
+            table_body += f'<tr><td>{row[0]}</td><td> < 0.01 </td></tr>'
+        else:
+            table_body += f'<tr><td>{row[0]}</td><td>{(row[1]):.2f}</td></tr>'
         
     for _ in range(index + 1, 10):
         table_body += '<tr><td></td><td></td></tr>'
@@ -115,16 +117,28 @@ def generate_bacterial_table(bacteria_tsv_data, pathogen_tsv_data, keystone_tsv_
     keystone_img = '<img src="../References/keystone2.png" alt="keystone" width="20px">'
     
     table_body = ''
+    index = 0 
     for index, data in enumerate(bacteria):
         if index >= 12:
             break
         species_name = data[0]
-        if species_name in pathogen_name:
-            table_body += f'<tr><td>{data[0]}</td><td>{pathogen_img}</td><td>{float(data[1]):.4f}</td></tr>'
-        elif species_name in keystone_name:
-            table_body += f'<tr><td>{data[0]}</td><td>{keystone_img}</td><td>{float(data[1]):.4f}</td></tr>'
+        abundance = "{:.2f}".format(float(data[1]))
+        
+        if abundance < 0.01:
+            if species_name in pathogen_name:
+                table_body += f'<tr><td>{data[0]}</td><td>{pathogen_img}</td><td> < 0.01 </td></tr>'
+            elif species_name in keystone_name:
+                table_body += f'<tr><td>{data[0]}</td><td>{keystone_img}</td><td> < 0.01 </td></tr>'
+            else:
+                table_body += f'<tr><td>{data[0]}</td><td></td><td> < 0.01 </td></tr>'
         else:
-            table_body += f'<tr><td>{data[0]}</td><td></td><td>{float(data[1]):.4f}</td></tr>'
+            if species_name in pathogen_name:
+                table_body += f'<tr><td>{data[0]}</td><td>{pathogen_img}</td><td>{abundance}</td></tr>'
+            elif species_name in keystone_name:
+                table_body += f'<tr><td>{data[0]}</td><td>{keystone_img}</td><td>{abundance}</td></tr>'
+            else:
+                table_body += f'<tr><td>{data[0]}</td><td></td><td>{abundance}</td></tr>'
+    
     for _ in range(index + 1, 12):
         table_body += '<tr><td></td><td></td><td></td></tr>'
     return table_body
@@ -138,10 +152,14 @@ def generate_fungal_table(tsv_data):
     species.sort(key = lambda x: x[1], reverse=True)
     
     table_body = ''
+    index = 0
     for index, row in enumerate(species):
         if index >= 12:
             break
-        table_body += f'<tr><td>{row[0]}</td><td>{(row[1]):.4f}</td></tr>'
+        if row[1] < 0.01:
+            table_body += f'<tr><td>{row[0]}</td><td> < 0.01 </td></tr>'
+        else:
+            table_body += f'<tr><td>{row[0]}</td><td>{(row[1]):.2f}</td></tr>'
     for _ in range(index + 1, 12):
         table_body += '<tr><td></td><td></td></tr>'
     return table_body    
@@ -151,8 +169,19 @@ def generate_fungal_table(tsv_data):
 ######################################
 
 def generate_patient_info(tsv_data):
-    data = tsv_data[0]
-    info_body= f'<p>Patient: {data["Patient Name"]}<br> Sex: {data["Sex"]}<br> DOB: {data["DOB"]}<br> Sample ID: {data["SampleID"]}</p>'
+    patient_data_dict = tsv_data
+    
+    patient_data = []
+    
+    for data in patient_data_dict:
+        if data["SampleID"] == sampleID:
+            patient_data.append(data)
+            break
+        else:
+            print('Id not found')
+
+    patient = patient_data[0]
+    info_body= f'<p>Patient: {patient["Patient Name"]}<br> Sex: {patient["Sex"]}<br> DOB: {patient["DOB"]}<br> Sample ID: {patient["SampleID"]}</p>'
     return info_body
 
 def generate_metabolic_sample_ratio(ratio_data): 
@@ -200,7 +229,6 @@ def generate_enterotype_description(out_file_data):
         body_info = f'<p>Sorry, your enterotype is nonexistent.</p>'
     # print(body_info)
     return body_info
-
 
 ####################################
 #~~~~GENERATE METABOLITE VALUES~~~~#
