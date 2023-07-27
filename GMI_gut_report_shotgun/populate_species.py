@@ -122,7 +122,7 @@ def generate_bacterial_table(bacteria_tsv_data, pathogen_tsv_data, keystone_tsv_
         if index >= 12:
             break
         species_name = data[0]
-        abundance = "{:.2f}".format(float(data[1]))
+        abundance = float("{:.2f}".format(float(data[1])))
         
         if abundance < 0.01:
             if species_name in pathogen_name:
