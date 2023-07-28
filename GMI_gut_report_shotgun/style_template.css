@@ -1,0 +1,562 @@
+body{
+  background-image: linear-gradient(to top, #cccccc, #f2f2f2b4);
+  /* font-family: ; */
+}
+.pdf-page {
+  margin: 0 auto;
+  width: 8.5in; 
+}
+
+.page{
+  width: 8.5in;
+  height: 10.7in;
+  transform:scale(0.93);
+  padding: 10px;
+  border: 1px solid #c4b5b5cb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  position:relative;
+}
+
+.page-break{
+  page-break-after: always;
+}
+
+/* TABLE OF CONTENTS */
+.toc {        
+  position: fixed;
+  float: left;
+  margin-right: 20px;
+  padding: 0;
+  list-style-type: none;
+  color: black;
+  width: 300px;
+  background-color: rgb(206, 206, 206);
+  border-radius: 10px;
+  border: 1px solid #c4b5b5cb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+.toc h4{
+  text-align: center;
+  color:rgb(136, 2, 2)
+}
+
+.toc li {
+  margin-bottom: 5px;
+}
+
+.toc a {
+  text-decoration: none;
+  color: black;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ */
+/* consolidated classes */
+/* ~~~~~~~~~~~~~~~~~~~~ */
+.headerTitle{
+  color:rgb(136, 2, 2);
+  border-bottom: 1px solid black;
+}
+
+.pageDescription{
+  padding: 0px 50px 0px 50px;
+}
+
+.footer{
+  text-align: right;
+  color: rgb(136, 2, 2);
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+}
+.footerTitle{
+  border-bottom: 2px solid black;
+
+}
+.pageNumber{
+  margin-top: -15px;
+}
+
+/* ~~~~~~~~~~~ */
+/* page titles */
+/* ~~~~~~~~~~~ */
+.rightSideHeader{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.rightSideTitle{
+  padding-left: 10px;
+  padding-right: 10%;
+  color: rgb(136, 2, 2);
+  border-bottom: 1px solid black;
+}
+
+.leftSideTitle{
+  padding-right: 10px;
+  text-align: right;
+  color: rgb(136, 2, 2);
+  border-bottom: 1px solid black;
+  width: 20%;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 1~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ */
+.companyLogo{
+    display: flex;
+    justify-content: right;
+}
+
+.companyLogo img{
+  width: 300px;
+}
+
+.headerPage1{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.patientInfo{
+    color: black;
+    margin-top: 5px;
+
+}
+
+.page1Info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title{
+  width: 40%;
+}
+
+#title h2{
+  text-align: center;
+  color: rgb(136, 2, 2);
+  border-bottom: 1px solid black;
+}
+
+.gutImage{
+  margin: 0 0 30px 0;
+}
+
+.healthBar {
+  position: relative;
+  width: 650px;  /* Adjust width and height as needed */
+  height: 70px;
+}
+.bar-gradient {
+  width: 100%;
+  height: 100%;
+  /* background-color: aqua; */
+}
+.score-marker {
+  position: absolute;
+  top: -100%;  
+  transform: translate(-50%, 0%);
+  /* arrow position */
+  /* need to shift the arrow starting point */
+
+}
+
+
+.healthBarDescription{
+  margin: auto 0;
+  width: 80%;
+}
+
+.breakdown{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
+
+.bottomContent{
+  text-align: center;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 2~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ */
+
+.commensalAbundance{
+  text-align: center;
+}
+
+.commensalBalanceConent{
+  padding: 0px 50px 0px 50px;
+  margin: -20px 0px -20px 0px;
+}
+
+.speciesProfile{
+  text-align: center;
+}
+
+/* graphs */
+.graphSection{
+  display: flex;
+  justify-content: space-around;
+}
+
+.speciesProfile{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.graphs{
+  text-align: center;
+}
+
+.commensalGraph{
+  margin-top: -50px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 3~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ */
+
+/* bacteria content*/
+
+.absoluteAbundanceTable{
+  display: flex;
+  max-height: 250px;
+  margin-left: 40px;
+  margin-right: 40px;
+  border: 0.5px solid black;
+  padding: 15px;
+}
+
+.absolutePhylaGraphContainer {
+  position: relative;
+  width: 70%;
+  max-height: 250px;
+}
+
+.abundanceGraph{
+  height: 17px;
+  padding-top: 20px;
+  margin-bottom: -5px;
+  width: 100%; 
+}
+.absolutePhylaNameContainer{
+  margin-right: 35px;
+  max-height: 250px;
+}
+
+.phylaName{
+  margin-bottom: -4px;
+}
+
+/* populate all phylum graphs */
+
+
+/* #graph1{
+  width: 71.42857142857143%;
+}
+#graph2{
+  width: 50%;
+}
+#graph3{
+  width: 75%;
+}
+
+#graph4{
+  width: 25%;
+}
+
+#graph5{
+  width: 62.5%;
+}
+
+#graph6{
+  width: 80%;
+}
+
+#graph7{
+  width: 50%;
+} */
+
+
+
+.graph-wrapper {
+  position: relative;
+}
+
+.marker {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  border-left: 1.5px dashed black;
+}
+
+#marker1 {
+  left: 25%; /* Adjust left position for marker 1 */
+}
+#marker2 {
+  left: 37.5%; /* Adjust left position for marker 2 */
+}
+#marker3 {
+  left: 50%; /* Adjust left position for marker 3 */
+}
+#marker4 {
+  left: 62.5%; /* Adjust left position for marker 4 */
+}
+#marker5 {
+  left: 75%; /* Adjust left position for marker 5 */
+}
+
+
+.tableInformation{
+  padding: 0px 50px 0px 50px;
+  font-size: small;
+}
+.alphaDiversityContent{
+  display: flex;
+  
+}
+
+.alphaDiversityInfo{
+  margin: 0px 20px 0px 20px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 4~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ */
+
+.metabolicRatios{
+  display: flex;
+  justify-content: space-around;
+}
+
+.metabolicTitle{
+  color: rgb(136, 2, 2);
+  border-bottom: 1px solid black;
+}
+
+
+.metabolicGraphs{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space space-evenly; */
+  margin-top: 60px;
+
+}
+.metabolicBarGraph{
+  padding-top: 20px;
+}
+.ratioDescription{
+  width: 200px
+}
+
+.ratio{
+  text-align: center;
+}
+.ratio1{
+  padding-bottom: 260px;
+}
+/* 
+#page4{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+} */
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 5~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ */
+
+.metaboliteTable table{
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.metaboliteTableHeader th{
+  border-bottom: 1px solid black;
+}
+
+.leftTableHeader{
+  text-align: left;
+}
+
+.resultHeader {
+  padding-left: 40px;
+  text-align: left;
+}
+
+
+.metaboliteTotal{
+  /* border: 0.5px solid black; */
+  /* margin: 20px; */
+  background-color: rgb(179, 179, 179);
+}
+
+.metaboliteName {
+  padding-left: 25px;
+}
+.range {
+  text-align: center;
+}
+
+.range{
+  width: 100px;
+  border-left: 1px solid black;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 6 & 7~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/*consolidated table styling */
+.tableContainer table{
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.tableContainer tbody{
+  text-align: center;
+}
+
+.tableContainer td{
+  border-bottom: 1px solid black;
+  height: 20px; 
+}
+
+.tableTitle{
+  margin-left: 5%;
+  color: rgb(136, 2, 2);
+}
+
+.tableHeader{
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+/* dotCOLOR */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+.green {
+  background-color: green;
+}
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.tableKey{
+  text-align: center;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 8~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ */
+.patientEnterotype{
+  text-align: center;
+  margin: 100px;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 9~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ */
+
+.methods{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px 0px 50px;
+  font-size: larger;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PAGE 10~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~ */
+
+.pageTitle{
+  /* padding: 0px 30px 0px 30px; */
+  text-align: center;
+}
+.image{
+  text-align: center;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~PRINT RULES~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* separates pages */
+@media print {
+    /* Insert CSS rules specific to print */
+    .page-break {
+    page-break-after: always;
+    }
+}
+
+@media print {
+    @page {
+      size: auto; /* Adjust the page size as needed */
+      margin: 0mm; /* Set the page margins to 0 for full-page scaling */
+      
+    }
+
+
+    html, .page {
+      width: 100%; /* Ensure the HTML and body take up the full width */
+      height: 100%; /* Ensure the HTML and body take up the full height */
+    }
+    
+    /* Adjust the scaling properties as needed */
+    .page {
+      width: 8.5in;
+      height: 10in;
+      transform-origin: center;
+      transform: scale(0.9); 
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      /* position: static !important; */
+    }
+
+
+    .footer {
+        position: fixed;
+        bottom: -100px;
+    }
+
+
+    .toc{
+      display: none;
+    }
+  }
+
+
+
+

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Title</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function scrollToSection(pageId, event) {
+            event.preventDefault(); 
+            var page = document.getElementById(pageId);
+            page.scrollIntoView({ behavior: 'smooth' });
+          }
+      </script>
+</head>
+<body>
+    <div class="toc">
+            <h4>Table of Contents</h4>
+        <ol>
+            <li><a href="#" onclick="scrollToSection('page1', event)">Gut Health Overview</a></li>
+            <li><a href="#" onclick="scrollToSection('page2', event)">Microbial Composition Overview</a></li>
+            <li><a href="#" onclick="scrollToSection('page3', event)">Commensal Phyla and Diversity</a></li>
+            <li><a href="#" onclick="scrollToSection('page4', event)">Key Metabolic Ratios</a></li>
+            <li><a href="#" onclick="scrollToSection('page5', event)">Metabolites</a></li>
+            <li><a href="#" onclick="scrollToSection('page6', event)">Potential Clinically Relevant Species</a></li>
+            <li><a href="#" onclick="scrollToSection('page7', event)">Total Species Level Microbial Compositions</a></li>
+            <li><a href="#" onclick="scrollToSection('page8', event)">Enterotype</a></li>
+            <li><a href="#" onclick="scrollToSection('page9', event)">Methods</a></li>
+            <!-- <li><a href="#" onclick="scrollToSection('page10', event)">Supplemental</a></li> -->
+        </ol>
+    </div>
+    <div class="pdf-page">
+        <div class="page-container">
+            <!-- PAGE 1 --><!-- PAGE 1 --><!-- PAGE 1 --><!-- PAGE 1 --><!-- PAGE 1 --><!-- PAGE 1 -->
+            <div class="page" id="page1">
+                <div class="pageContent">
+                    <div class="companyLogo">
+                        <!--file path -->
+                        <!-- ./ReportReferenceMaterials -->
+                        <img src="../References/gedroic_logo.png" alt="Gedroic-Logo">
+                    </div>
+                    <div class="headerPage1">
+
+                        <div class="patientInfo">
+                            <!-- Patient Info -->
+                        </div>
+
+                        <div class="companyInfo">
+                            <P>
+                                Gedroic Medical Institute <br>
+                                Kristine Gedroic MD <br>
+                                1200 Mount Kemble Ave <br>
+                                Ste 350 <br>
+                                Morristown, NJ 07960-8008
+                            </P>
+                        </div>
+
+                    </div>
+
+
+                    <div class="page1Info">
+                        <div id="title">
+                            <h2>Gut Health Overview </h2>
+                        </div>
+
+                        <div class="gutImage">
+                            <!--file path -->
+                            <img src="../References/gut_image.png" alt="gut image">
+                        </div>
+
+                        <div class="healthBar">
+                            <!--file path -->
+                            <img class="bar-gradient" src="../References/HealthyScoreBar.png" alt="health bar">
+                            <img class="score-marker" src="../References/score_marker.png" alt="score marker" width="115px">
+                        </div>
+
+                        <div class="healthBarDescription">
+                            <p>
+                                The above graph represents your overall gut health compared to our internally curated reference of healthy individuals. Factors affecting gut health such as biodiversity, macronutrients, and pathogenic bacteria are used to create a composite score represented by the bar above. Your score is then calculated as based on how far you stray from the average healthy individuals in these areas. 
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="breakdown">
+                        <div class="keystoneSpecies bottomContent">
+                            <h3>Keystone<br>
+                                Species
+                            </h3>
+                            <div>
+                                <!--file path -->
+                                <img src="../References/keystone.png" alt="keystone species">
+                            </div>
+                            <div>
+                                <!--file path -->
+                                <img src="../images/bar.png" alt="9/10 circle" width="80px">
+                            </div>
+                        </div>
+
+                        <div class="dysbiosisRisk bottomContent">
+                            <h3>Dysbiosis<br>
+                                Risk
+                            </h3>
+                            <div>
+                                <!--file path -->
+                                <img src="../References/dysbiosis.png" alt="dysbiosis" width="80px">
+                            </div>
+                            <div>
+                                <h3>Moderate</h3>
+                            </div>
+                        </div>
+
+                        <div class="enterotype bottomContent">
+                            <h3>Enterotype</h3>
+                            <div>
+                                <!--file path -->
+                                <img src="../References/enterotype.png" alt="enterotype" width="80px">
+                            </div>
+                            <div>
+                                <h3>
+                                    Type 1 <br>
+                                    (Bacteroides)
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="footer">
+                        <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                        <p class="pageNumber">Page 1</p>
+                    </div>
+                </div>    
+            </div>
+            <div class="page-break"></div>
+
+
+            <!-- PAGE 2 --><!-- PAGE 2 --><!-- PAGE 2 --><!-- PAGE 2 --><!-- PAGE 2 --><!-- PAGE 2 -->
+
+            <div class="page" id="page2">
+                <div class="companyLogo">
+                    <!--file path -->
+                    <img src="../References/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Microbial Composition Overview</h1>
+                </div>
+
+
+                <div class="commensalBalance">
+                    <div class="rightSideHeader">
+                        <h3 class="rightSideTitle">Commensal Balance</h3>
+                    </div>
+                    <div class="commensalBalanceConent">
+                        <p>
+                            Commensal abundances are one of the primary indicators for overall gut health. Commensal organisms proliferate your gut in a symbiotic relationship, providing them with a constant supply of nutrients while they break down complex molecules into more basic forms that our bodies can readily use. Specific species can vary greatly from person to person, but most individuals conform to a consensus profile at higher levels of taxonomy such as phylum and family. 
+                        </p>
+                    </div>
+                    <div class="graphSection">
+                            <div class="speciesProfile">
+                                <div>
+                                    <h4>Bacterial <br> Phyla</h4>
+                                </div>
+                                <div>
+                                    <h4>Bacterial <br> Family</h4>
+                                </div>
+                                <div>
+                                    <h4>Fungal <br> Family</h4>
+                                </div>
+                            </div>
+
+
+                            <div class="patientSample graphs">
+                                <h4>Your Sample</h4>
+                                <div class="commensalGraph">
+                                    <img src="./[sampleID]_analysis_results/[sampleID]_pro_p_donut_plot.png" alt="fungi graph" width="300px">
+                                </div>
+                                <div class="commensalGraph">
+                                    <img src="./[sampleID]_analysis_results/[sampleID]_pro_f_donut_plot.png" alt="fungi graph" width="300px">
+                                </div>
+                                <div class="commensalGraph">
+                                    <img src="./[sampleID]_analysis_results/[sampleID]_euk_f_donut_plot.png" alt="fungi graph" width="300px">
+                                </div>
+                            </div>
+
+                            <div class="healthySample graphs">
+                                <h4>Healthy Sample</h4>
+                                <div class="commensalGraph">
+                                    <img src="../References/healthy_pro_p_dount_plot_avg.png" alt="fungi graph" width="300px">
+                                </div>
+                                <div class="commensalGraph">
+                                    <img src="../References/healthy_pro_f_dount_plot_avg.png" alt="fungi graph" width="300px">
+                                </div>
+                                <div class="commensalGraph">
+                                    <img src="../References/healthy_euk_f_dount_plot.png" alt="fungi graph" width="300px">
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+
+                <div class="commensalAbundance">
+                    <!--file path -->
+                    <img src="./[sampleID]_analysis_results/[sampleID]_Total_Commensal.png" alt="patient abundance bar" width="700px" height="70px">
+                </div>
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 2</p>
+                </div>
+
+            </div>
+            <div class="page-break"></div>
+
+            <!-- PAGE 3 --><!-- PAGE 3 --><!-- PAGE 3 --><!-- PAGE 3 --><!-- PAGE 3 --><!-- PAGE 3 -->
+            <div class="page" id="page3">
+                <div class="companyLogo">
+                    <!--file path -->
+                    <img src="../References/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Commensal Phyla and Diversity</h1>
+                </div>
+                <div class="pageDescription">
+                    <p>
+                        Commensal profiles are typically a ratio of seven main bacterial phyla. Each phylum contains a wide variety of species that perform unique functions but have some commonalities on how they operate or the metabolites they produce. Like most things in life, these phyla are good to have in moderation and require a balance. Falling outside of this normal operating balance is known as 'dysbiosis', a condition that can have impacts on your digestive, immune, and even mental health.
+                    </p>
+                </div>
+
+                <div class="absoluteAbundance">
+                    <div class="rightSideHeader">
+                        <h3 class="rightSideTitle">Absolute Commensal Abundance by Phyla</h3>
+                    </div>
+                    <div class="absoluteAbundanceTable">
+                        <!-- <img src="./images/graphs/page3/absolute_abundance.png" alt="absolute abundance graph" width="650px" height="350px"> -->
+                        <div class="absolutePhylaNameContainer">
+                            <!-- if order is changed, need to update python file that generates css in name array, so the bars line up with the bacteria name -->
+                            <div id="bacteroidota" class="phylaName"><h4>Bacteroidota</h4></div>
+                            <div id="firmicutes" class="phylaName"><h4>Firmicutes</h4></div>
+                            <div id="actinobacteriota" class="phylaName"><h4>Actinobacteriota</h4></div>
+                            <div id="proteobacteria" class="phylaName"><h4>Proteobacteria</h4></div>
+                            <div id="verrucomicrobiota" class="phylaName"><h4>Verrucomicrobiota</h4></div>
+                        </div>
+                        <div class="absolutePhylaGraphContainer">
+                            <div class="marker" id="marker1">&nbsp;-25%</div>
+                            <div class="marker" id="marker2">&nbsp;-12.5%</div>
+                            <div class="marker" id="marker3">&nbsp;Healthy</div>
+                            <div class="marker" id="marker4">&nbsp;+12.5%</div>
+                            <div class="marker" id="marker5">&nbsp;+25%</div>
+                            
+
+                            <div class="graph-wrapper">
+                                <!--file path -->
+                              <img src="./References/RedBar.png" alt="Graph 1" class="abundanceGraph" id="graph1">
+                            </div>
+                          
+                            <div class="graph-wrapper">
+                                <!--file path -->
+                              <img src="./References/BlueBar.png" alt="Graph 2" class="abundanceGraph" id="graph2">
+                            </div>
+                          
+                            <div class="graph-wrapper">
+                                <!--file path -->
+                              <img src="./References/BrownBar.png" alt="Graph 3" class="abundanceGraph" id="graph3">
+                            </div>
+                          
+                            <div class="graph-wrapper">
+                                <!--file path -->
+                              <img src="./References/GreenBar.png" alt="Graph 4" class="abundanceGraph" id="graph4">
+                            </div>
+                          
+                            <div class="graph-wrapper">
+                                <!--file path -->
+                              <img src="./References/OrangeBar.png" alt="Graph 5" class="abundanceGraph" id="graph5">
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="tableInformation">
+                        <div>
+                            <p>
+                                <b>Table 1: </b>The table above shows the seven most common phylum that are used to grade commensal health in individuals. The bars represent the relative abundance of each phylum in the user sample compared to the relative abundance in the average healthy sample. Bars are scaled accordingly based on the ratio of values to reflect a percentage range of over or underabundance compared to the healthy range.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alphaDiversity">
+                    <div class="leftSideHeader">
+                        <h3 class="leftSideTitle">Alpha Diversity</h3>
+                    </div>
+                    <div class="alphaDiversityContent">
+                        <div class="alphaDiversityGraph">
+                            <!--file path -->
+                            <img src="./[sampleID]_analysis_results/[sampleID]_model_Alpha_Div.png" alt="alpha diversity bar graph" width="450px">
+                            <!-- Generated Alpha Diversity Graph -->
+                        </div>
+                        <div class="alphaDiversityInfo">
+                            <p>
+                                Alpha Diversity refers to the richness of different species identified within the microbiome. A low alpha diversity score indicates a lack of diversity and may be evidence of recent damage applied to the microbiome via environmental toxins, stress, pathogens, or antibiotic use. High alpha diversity scores can suggest overabundance, and a microbiome that is struggling to stabilize. 
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 3</p>
+                </div>
+
+            </div>
+            <div class="page-break"></div>
+            
+            <!-- PAGE 4 --><!-- PAGE 4 --><!-- PAGE 4 --><!-- PAGE 4 --><!-- PAGE 4 --><!-- PAGE 4 -->
+            
+            <div class="page" id="page4">
+                <div class="companyLogo">
+                    <!--file path -->
+                    <img src="../References/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Key Metabolic Ratios</h1>
+                </div>
+               
+                <div class="pageDescription">
+                    <p>
+                        Key abundance ratios between specific phylum have been identified in literature for being great indicators for dietary trends and precursors for dysbiosis. Select Phyla interactions can correlate highly with macronutrient consumption and reflect dietary/metabolite imbalances. Similarly, radical ratios can be indicators of commensal imbalance driven by external factors or other pre-existing conditions.  
+                    </p>
+                </div>
+
+
+                <div class="metabolicRatios">
+
+                    <div class="metabolicGraphs">
+                        <!-- Generated Metabolic Ratio Graphs -->
+                        <div class="metabolicBarGraph">
+                            <img src="./[sampleID]_analysis_results/[sampleID]_f-b_o.png" alt="" width="375px">
+                        </div>
+                        <div class="metabolicBarGraph">
+                            <img src="./[sampleID]_analysis_results/[sampleID]_p-a_o.png" alt="" width="375px">
+                        </div>
+                    </div>
+
+                    <div class="ratioDescription">
+                        <div class="metabolicTitle title1">
+                            <h3>Description</h3>
+                        </div>
+                        <div class="description1">
+                            <p>
+                                The Firmicutes to Bacteriodetes ratio is shown to shift continually throughout an individual's life, leaning heavily towards Firmicutes in both infants and the elderly, but being more balanced with Bacteriodetes throughout Adulthood. High F/B ratios tend to correlate with carbohydrate rich diets with reduced protein intake, which drives the abundance of Firmicutes, the guts primary metabolizers of complex carbohydrates. 
+                            </p>
+                        </div>
+                        <div class="description2">
+                            <p>
+                                Actinobacteria metabolize organic carbohydrates and starches into secondary metabolites that have antibiotic, antifungal, and anticancer properties. Proteobacteria are known for reducing oxidative stresses within the gut by consuming oxygen. This also plays an important role in providing a suitable for essential anaerobes. A balanced 1:1 ratio of these two phyla is generally associated with good microbiome health and healthy cell turnover. 
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="healthy">
+                        <div class="metabolicTitle title 2">
+                            <h3>Healthy Ratio</h3>
+                        </div>
+                        <div class="healthyRatio ratio">
+                            <div class="ratio1">
+                                <p>
+                                    1.67
+                                </p>
+                            </div>
+                            <div class="ratio2">
+                                <p>
+                                    0.511
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="sample">
+                        <div class="metabolicTitle title3">
+                            <h3>Sample Ratio</h3>
+                        </div>
+                        <div class="sampleRatio ratio">
+                            <!-- Generate Sample Ratio -->
+
+                            <!-- <div class="ratio1">
+                                <p>
+                                    1.3
+                                </p>
+                            </div>
+                            <div class="ratio2">
+                                <p>
+                                    1.3
+                                </p>
+                            </div> -->
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="footer" id="footer4">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 4</p>
+                </div>
+            </div>
+            <div class="page-break"></div>
+
+            <!-- PAGE 5 --><!-- PAGE 5 --><!-- PAGE 5 --><!-- PAGE 5 --><!-- PAGE 5 --><!-- PAGE 5 -->
+
+            <div class="page" id="page5">
+                <div class="companyLogo">
+                    <!--file path -->
+                    <img src="../References/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Metabolites</h1>
+                </div>
+
+                <div class="metaboliteTable">
+                    <table>
+                        <tr class="metaboliteTableHeader">
+                            <th class="leftTableHeader">Metabolite</th>
+                            <th class="resultHeader">Result</th>
+                            <th class="range">Range</th>
+                        </tr>
+                        <tr class="metaboliteTotal">
+                            <td class="metaboliteName">Short Chain Fatty Acid Total</td>
+                            <!--file path -->
+                            <td class=><img src="./[sampleID]_analysis_results/short_chain_fatty_acids_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Short Chain Fatty Acid~</td>
+                        </tr>
+                        <tr>
+                            <td class="metaboliteName">N-butyrate</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/butyrate_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Butyrate~</td>
+                        </tr>
+                        <tr>
+                            <td class="metaboliteName">Acetate</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/acetate_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Acetate~</td>
+                        </tr>
+                        <tr>
+                            <td class="metaboliteName">Propionate</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/propionate_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Propionate~</td>
+                        </tr>
+                        
+                        <tr><th class="leftTableHeader">Inflammation and Immune Response</th> <th></th><th class="range"></th></tr>
+                        <tr class="metaboliteTotal">
+                            <td class="metaboliteName">Inflammation</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/inflammation_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Inflammation~</td>
+                        </tr>
+
+                        <tr><th class="leftTableHeader">Vitamin Synthesis Capacity</th><th></th><th class="range"></th></tr>
+                        <tr class="metaboliteTotal">
+                            <td class="metaboliteName">Vitamin Synthesis Total</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/vitamin_synthesis_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Vitamin Synthesis~</td>
+                        </tr>
+
+                        <tr>
+                            <td class="metaboliteName">Folate</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/folate_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Folate~</td>
+                        </tr>
+
+                        <tr>
+                            <td class="metaboliteName">Riboflavin</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/riboflavin_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Riboflavin~</td>
+                        </tr>
+
+                        <tr>
+                            <td class="metaboliteName">B12</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/B12_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~B12~</td>
+                        </tr>
+
+                        <tr><th class="leftTableHeader">Bile Production</th> <th></th><th class="range"></th></tr>
+                        <tr class="metaboliteTotal">
+                            <td class="metaboliteName">Bile Acid Production Total</td>
+                            <!--file path -->
+                            <td><img src="./[sampleID]_analysis_results/bile_acid_violin_plot.png" alt="" width="300px" height="50px"></td>
+                            <td class="range">~Bile Acid~</td>
+                        </tr>
+
+                      </table>
+                </div>
+                
+
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 5</p>
+                </div>
+
+            </div>
+            <div class="page-break"></div>
+
+
+            <!-- PAGE 6 --><!-- PAGE 6 --><!-- PAGE 6 --><!-- PAGE 6 --><!-- PAGE 6 --><!-- PAGE 6 -->
+
+            <div class="page" id="page6">
+                <div class="companyLogo">
+                    <!--file path -->
+                    <img src="../References/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Potential Clinically Relevant Species</h1>
+                </div>
+                <div class="pageDescription">
+                    <p>
+                        The bacteria that populate the gut can be broken down into three main groups: Commensal, Pathogenic, and Keystone species. Commensal species are organisms that contribute to the diversity and balance of the gut, and is the largest class of microbe identities. A healthy gut should contain several hundred different species in low abundances. Pathogenic species are organisms that can cause disease. Some commensal organisms can become pathogenic if they are over-abundant in the gut. Keystone species are organisms that are recognized to form the foundation of the microbial ecosystem that makes our microbiome. These species perform key metabolic conversions that drive and stabilize the abundance of many different commensal organisms!
+                    </p>
+                </div>
+                <div class="keyStoneContainer tableContainer">
+                    <div class="tableTitle">
+                        <h3>Keystone Species</h3>
+                    </div>
+                    <table id="keyStone-table">
+                        <thead>
+                          <tr class="tableHeader">
+                            <th>Species</th>
+                            <th>Abundance (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody id="keyStone-table-body">
+                            <!-- Generated keystone table -->
+                        </tbody>
+                      </table>
+                </div>
+
+                <div class="pathogenContainer tableContainer">
+                    <div class="tableTitle">
+                        <h3>Potentially Pathogenic Species</h3>
+                    </div>
+                    <table id="pathogen-table">
+                        <thead>
+                          <tr class="tableHeader">
+                            <th>Species</th>
+                            <th>Range</th>
+                            <th>Abundance (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody id="pathogen-table-body">
+                            <!-- Generated pathogen table -->
+                        </tbody>
+                      </table>
+                </div>
+                <div class="tableKey">
+                    <span class="dot green"></span> Normal Range
+                    <span class="dot yellow"></span> Monitor
+                    <span class="dot red"></span> Elevated
+                </div>
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 6</p>
+                </div>
+            </div>
+            <div class="page-break"></div>
+
+            <!-- PAGE 7 --><!-- PAGE 7 --><!-- PAGE 7 --><!-- PAGE 7 --><!-- PAGE 7 --><!-- PAGE 7 -->
+
+            <div class="page" id="page7">
+                <div class="companyLogo">
+                    <!--file path -->
+                    <img src="../References/gedroic_logo.png" alt="Gedroic-Logo" >
+                </div>
+                <div>
+                    <h1 class="headerTitle">Total Species Level Microbial Compositions</h1>
+                </div>
+                <div class="bacterialContainer tableContainer">
+                    <div class="tableTitle">
+                        <h3>Bacterial Species</h3>
+                    </div>
+                    <table id="bacterial-table">
+                        <thead>
+                          <tr class="tableHeader">
+                            <th>Species</th>
+                            <th>Role</th>
+                            <th>Abundance (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody id="bacterial-table-body">
+                            <!-- Generated bacteria table -->
+                        </tbody>
+                      </table>
+                </div>
+
+                <div class="fungalContainer tableContainer">
+                    <div class="tableTitle">
+                        <h3>Fungal Species</h3>
+                    </div>
+                    <table id="fungal-table">
+                        <thead>
+                          <tr class="tableHeader">
+                            <th>Species</th>
+                            <th>Abundance (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody id="fungal-table-body">
+                            <!-- Generated fungal table -->
+                        </tbody>
+                      </table>
+                </div>
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 7</p>
+                </div>
+            </div>
+            <div class="page-break"></div>
+
+            <!-- PAGE 8 --><!-- PAGE 8 --><!-- PAGE 8 --><!-- PAGE 8 --><!-- PAGE 8 --><!-- PAGE 8 -->
+
+            <div class="page" id="page8">
+                <div class="companyLogo">
+                    <!--file path -->
+                    <img src="../References/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Enterotype</h1>
+                </div>
+                <div class="pageDescription">
+                    <p>
+                        Studies on population stratification have suggested that the human gut microbiota is classified under the following three distinct categories or "enterotypes": Type 1 - Bacteroides, Type 2 - Prevotella, and Type 3 - Ruminococcus. Enterotypes help classify molecular function beyond species abundance by measuring the interactions between key expression pathways in the microbiome. Enterotypes can help to illuminate enriched pathways influenced by microbiome composition, dietary influence, and patient metabolism. 
+                    </p>
+                </div>
+                <div class="patientEnterotype">
+                    <div>
+                    <!-- Generated enterotype number -->
+                    </div>
+                    <div>
+                        <!-- <h2>Image in Progress</h2> -->
+                        <!--file path -->
+                        <img src="../References/enterotype-lastpage.png" alt="enterotype image" width="400px">
+                    </div>
+                </div>
+            <!-- USE PYTHON TO POPULATE CONTENT -->
+                <div class="pageDescription">
+                    <!-- Generated enterotype description -->
+                </div>
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 8</p>
+                </div>
+
+            </div>
+            <div class="page-break"></div>
+
+            <!-- PAGE 9 --><!-- PAGE 9 --><!-- PAGE 9 --><!-- PAGE 9 --><!-- PAGE 9 --><!-- PAGE 9 -->
+
+            <div class="page" id="page9">
+                <div class="companyLogo">
+                    <!--file path -->
+                    <img src="../References/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Methods</h1>
+                </div>
+               <div class="methods">
+                <p>
+                    <b>DNA Extraction:</b> The ZymoBIOMICS®-96 MagBead DNA Kit (Zymo Research, Irvine, CA) was used to extract DNA using the automated KingFisher platform. 
+                </p>
+
+                <p>
+                    <b>Targeted Library Preparation:</b> Bacterial 16S ribosomal RNA gene targeted sequencing was performed using the Quick-16S™ NGS Library Prep Kit (Zymo Research, Irvine, CA). In most cases, the bacterial 16S primers amplified the V3-V4 region of the 16S rRNA gene. These primers have been custom-designed by Zymo Research to provide the best coverage of the 16S gene while maintaining high sensitivity. Fungal ITS gene targeted sequencing was performed using the Quick-16S™ NGS Library Prep Kit with custom ITS2 primers substituted for 16S primers.
+                    <br>
+                    <br>The sequencing library was prepared using an innovative library preparation process in which PCR reactions were performed in real-time PCR machines to control cycles and therefore limit PCR chimera formation. The final PCR products were quantified with qPCR fluorescence readings and pooled together based on equal molarity. The final pooled library was cleaned with the Select-a-Size DNA Clean & Concentrator™ (Zymo Research, Irvine, CA), then quantified with TapeStation®(Agilent Technologies, Santa Clara, CA) and Qubit® (Thermo Fisher Scientific, Waltham, WA).
+                </p>
+
+                <p>
+                    <b>Sequencing:</b> The final library was sequenced on Illumina® MiSeq™ with a v3 reagent kit (600 cycles). The sequencing was performed with 10% PhiX spike-in.
+                </p>
+
+                <p>
+                    <b>Bioinformatics Analysis:</b> Unique amplicon sequences variants were inferred from raw reads using the DADA2 pipeline (Callahan et al, 2016). Potential sequencing errors and chimeric sequences were also removed with the Dada2 pipeline. Chimeric sequences were also removed with the DADA2 pipeline. Taxonomy assignment was performed using Uclust from Qiime v.1.9.1 with the Zymo Research Database, a 16S database that is internally designed and curated, as reference. Composition visualization, alpha-diversity, and beta-diversity analyses were performed with Qiime v.1.9.1 (Caporaso et al., 2010). If applicable, taxonomy that have significant abundance among different groups were identified by LEfSe (Segata et al., 2011) using default settings. Other analyses such as heatmaps, Taxa2ASV Deomposer, and PCoA plots were performed with internal scripts.
+                </p>
+               </div>
+
+
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 9</p>
+                </div>
+
+            </div>
+            <div class="page-break"></div>
+
+
+            <!-- PAGE 10 --><!-- PAGE 10 --><!-- PAGE 10 --><!-- PAGE 10 --><!-- PAGE 10 --><!-- PAGE 10 -->
+
+            <!-- <div class="page" id="page10">
+                <div class="companyLogo">
+                    <img src="./images/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Supplemental</h1>
+                </div>
+               
+                <div class="pageTitle">
+                    <h1>The Gut-Brain Axis - How Gut Health Relates to Mental <br>
+                        and Cognitive Health
+                    </h1>
+                </div>
+                
+                <div class="pageDescription">
+                    <p>
+                        The gut brain microbiota axis is defined as a bidirectional communication system in 
+                        making gut microbes communicate with the brain and vice versa. The function is to 
+                        connect the emotional centers of the brain with the peripheral intestinal functions, 
+                        i.e., enteric reflex, intestinal permeability, immune activation and enteroendocrine
+                        signaling
+                    </p>
+                </div>
+
+                <div class="image">
+                    <img src="./images/graphs/page10/gut_brain.png" alt="brain connected to gut" width="500px">
+                </div>
+
+                <div class="pageDescription">
+                    <p>
+                        Circulating SCFAs increase production of tight junction proteins, thus limiting entry 
+                        of unwanted metabolites into brain tissue. Unwanted compounds like LPS can also cross 
+                        the BBB and activate neurons that affect mood and behavior.
+                    </p>
+                </div>
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 10</p>
+                </div>
+
+            </div> -->
+
+
+            
+        </div>
+        
+    </div>
+</body>
+</html>
+
+
+
+            <!-- PAGE TEMPLATE -->
+
+            <!-- <div class="page page4">
+                <div class="companyLogo">
+                    <img src="./images/gedroic_logo.png" alt="Gedroic-Logo">
+                </div>
+                <div>
+                    <h1 class="headerTitle">Page Title?</h1>
+                </div>
+               
+
+
+
+                <div class="footer">
+                    <p class="footerTitle">Gedroic Medical Institute Next-Gen Gut Microbiome Profile</p>
+                    <p class="pageNumber">Page 3</p>
+                </div>
+
+            </div> -->
+
+
+
+
+    <!-- <div class="page-break"></div>
+
+
+
+
