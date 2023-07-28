@@ -76,7 +76,12 @@ def generate_phylum_graph(sample_phylum_data, healthy_phylum_data):
         # multiply percentage by 0.25 for scaling relative to healthy sample(add 50 because healthy starts at 50% in css)
         sample_percentage = (((((sample[name]-healthy[name])/healthy[name])) * 100 * 0.25)+ 50)
         sample_percentage = math.floor(sample_percentage)
-        percentage_array.append(sample_percentage)
+        if sample_percentage > 100:
+            sample_percentage = 90
+            percentage_array.append(sample_percentage)
+        else:
+            percentage_array.append(sample_percentage)
+        # percentage_array.append(sample_percentage)
         # print(sample[name])    
        
     bar_graph_css = f"#graph1{{ width: {percentage_array[0]}%}} #graph2{{ width: {percentage_array[1]}%}} #graph3{{ width: {percentage_array[2]}%}} #graph4{{ width: {percentage_array[3]}%}} #graph5{{ width: {percentage_array[4]}%}}"
@@ -89,8 +94,8 @@ def generate_phylum_graph(sample_phylum_data, healthy_phylum_data):
 
     # file path
 score_file_path = f'./{sampleID}_analysis_results/{sampleID}_HealthScore.csv'
-healthy_phylum_path = f'../References/HealthyProkaryotePhylaOfInterestSummary.csv'        
-sample_phylum_path = f'./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum/phylum.tsv'
+healthy_phylum_path = f'./References/HealthyProkaryotePhylaOfInterestSummary.csv'        
+sample_phylum_path = f'.{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum/phylum.tsv'
 
 
 # read the file and store in variable
