@@ -174,7 +174,7 @@ try:
   color2 = 'orange'
   label2 = 'Bacteroidetes'
   filename = f"{sample}_f-b_o.png"
-  ratio = 'firmicutes/bacteroidetes ratio'
+  ratio = 'Firmicutes/Bacteroidetes ratio'
   numbers = [0.585, 0.351, phylum_abd['Firmicutes'], phylum_abd['Bacteroidota']]  # Replace with your two numbers
   create_barplot(numbers, ratio, filename, label1, label2, color1, color2)
   plt.clf()
