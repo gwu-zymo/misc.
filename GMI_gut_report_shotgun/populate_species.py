@@ -113,8 +113,8 @@ def generate_bacterial_table(bacteria_tsv_data, pathogen_tsv_data, keystone_tsv_
     
     # image reference for HTML
     # file path
-    pathogen_img = '<img src="../References/pathogen.png" alt="pathogen" width="20px">'
-    keystone_img = '<img src="../References/keystone2.png" alt="keystone" width="20px">'
+    pathogen_img = '<img src="./References/pathogen.png" alt="pathogen" width="20px">'
+    keystone_img = '<img src="./References/keystone2.png" alt="keystone" width="20px">'
     
     table_body = ''
     index = 0 
@@ -298,7 +298,7 @@ fungal_txt_file_path = f'./{sampleID}_analysis_results/top_10_fun_{sampleID}.txt
 
 patient_txt_file = '../patient_info.txt'
 enterotype_file_path = f'./{sampleID}_analysis_results/sample_r_output.txt'
-metabolite_healthy_range_file_path = '../References/Healthy_pathway.txt'
+metabolite_healthy_range_file_path = './References/Healthy_pathway.txt'
 
 metabolic_sample_ratio_file_path = f'./{sampleID}_analysis_results/{sampleID}_ratios.txt'
 
