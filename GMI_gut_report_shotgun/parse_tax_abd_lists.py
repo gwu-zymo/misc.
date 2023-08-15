@@ -169,9 +169,9 @@ try:
   name = 'Firmicutes_Bacteroidota'
   oup.write(f"{name}\t{ratio_1}\n")
   
-  color1 = 'blue'
+  color1 = 'maroon'
   label1 = 'Firmicutes'
-  color2 = 'orange'
+  color2 = 'steelblue'
   label2 = 'Bacteroidetes'
   filename = f"{sample}_f-b_o.png"
   ratio = 'Firmicutes/Bacteroidetes ratio'
