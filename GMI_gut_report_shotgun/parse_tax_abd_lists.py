@@ -28,6 +28,8 @@ genus_abd = {}
 inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/5.Genus/genus.tsv", 'r')
 line = inp.readline()
 line = inp.readline()
+ll = line.strip('\n').split('\t')
+pos = ll.index(sample)
 line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
@@ -93,19 +95,21 @@ inp = open(f"./{folder}/00...AllSamples.illumina.pe/Eukaryote/AbundanceTables/6.
 line = inp.readline()
 line = inp.readline()
 ll = line.strip('\n').split('\t')
-pos = ll.index(sample)
-line = inp.readline()
-while line:
-  ll = line.strip('\n').split('\t')
-  long_name = ll[0].split(';')[-1]
-  g = long_name.split(' ')[0].lstrip('s__').split('_')[0]
-  s = long_name.split(' ')[1].split('_')[0]
-  species_name = f"{g} {s}"
-  if not species_name in fungi_abd:
-    fungi_abd[species_name] = 0
-  fungi_abd[species_name]+=float(ll[pos])
+if sample in ll:
+  pos = ll.index(sample)
   line = inp.readline()
-inp.close()
+  while line:
+    ll = line.strip('\n').split('\t')
+    long_name = ll[0].split(';')[-1]
+    g = long_name.split(' ')[0].lstrip('s__').split('_')[0]
+    s = long_name.split(' ')[1].split('_')[0]
+    species_name = f"{g} {s}"
+    if not species_name in fungi_abd:
+      fungi_abd[species_name] = 0
+    fungi_abd[species_name]+=float(ll[pos])
+    line = inp.readline()
+  inp.close()
+
 
 oup = open(f"top_10_fun_{sample}.txt", 'w')
 sorted_items = sorted(fungi_abd.items(), key=lambda x: x[1], reverse=True)[:10]
@@ -118,6 +122,8 @@ phylum_abd = {}
 inp = open(f"./{folder}/00...AllSamples.illumina.pe/Prokaryote/AbundanceTables/2.Phylum/phylum.tsv", 'r')
 line = inp.readline()
 line = inp.readline()
+ll = line.strip('\n').split('\t')
+pos = ll.index(sample)
 line = inp.readline()
 while line:
   ll = line.strip('\n').split('\t')
