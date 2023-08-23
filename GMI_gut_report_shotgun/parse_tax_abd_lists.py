@@ -114,7 +114,7 @@ if sample in ll:
 oup = open(f"top_10_fun_{sample}.txt", 'w')
 sorted_items = sorted(fungi_abd.items(), key=lambda x: x[1], reverse=True)[:10]
 for key in sorted_items:
-  if key[1] > 0 and (key[0] != 'Other Other') and (key[0] != 'NA NA'):
+  if key[1] > 0 and (key[0] != 'Other Other') and (key[0] != 'NA NA') and (key[0] != 'Cyclospora cayetanensis'):
     oup.write(f"{key[0]}\t{key[1]}\n")
 oup.close()
 
