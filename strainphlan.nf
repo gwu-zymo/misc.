@@ -39,8 +39,7 @@ process pairReads {
 
 process metaphlan {
     container 'quay.io/biocontainers/metaphlan'
-    publishDir '.', mode: 'copy', pattern: '*_assembled.fasta'
-  
+     
     input:
     tuple val(sample), path(reads)
 
