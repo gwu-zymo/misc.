@@ -37,7 +37,23 @@ process pairReads {
     """
 }
 
-process assembleTranscripts {
+process metaphlan {
+    container 'quay.io/biocontainers/metaphlan'
+    publishDir '.', mode: 'copy', pattern: '*_assembled.fasta'
+  
+    input:
+    tuple val(sample), path(reads)
+
+    output:
+    tuple val(sample), path("${sample}_assembled.fasta")
+
+    script:
+    """
+    metaphlan ${f} --input_type fastq -s sams/${bn}.sam.bz2 --bowtie2out bowtie2/${bn}.bowtie2.bz2 -o profiles/${bn}_profiled.tsv
+    """
+}
+
+process strainphlan {
     container 'quay.io/repository/biobakery/strainphlan'
     publishDir '.', mode: 'copy', pattern: '*_assembled.fasta'
   
@@ -53,7 +69,6 @@ process assembleTranscripts {
     mv ${sample}_spades/transcripts.fasta ${sample}_assembled.fasta
     """
 }
-
 
 // Define workflow
 workflow {
