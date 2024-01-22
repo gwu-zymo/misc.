@@ -49,7 +49,7 @@ process metaphlan {
 
     script:
     """
-    metaphlan ${f} --input_type fastq -s sams/${bn}.sam.bz2 --bowtie2out bowtie2/${bn}.bowtie2.bz2 -o profiles/${bn}_profiled.tsv
+    metaphlan reads[0],reads[1] --input_type fastq -s ${sample}.sam.bz2 --bowtie2out bowtie2/${sample}.bowtie2.bz2 -o ${sample}_profiled.tsv
     """
 }
 
