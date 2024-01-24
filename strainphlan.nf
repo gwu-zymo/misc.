@@ -38,17 +38,15 @@ process pairReads {
 }
 
 process metaphlan {
-    container 'quay.io/biocontainers/metaphlan'
-     
     input:
     tuple val(sample), path(reads)
 
     output:
-    tuple val(sample), path("${sample}_assembled.fasta")
+    tuple val(sample), path("${sample}_sam.bz2")
 
     script:
     """
-    metaphlan reads[0],reads[1] --input_type fastq -s ${sample}.sam.bz2 --bowtie2out bowtie2/${sample}.bowtie2.bz2 -o ${sample}_profiled.tsv
+    sudo metaphlan reads[0],reads[1] --input_type fastq -s ${sample}.sam.bz2 --bowtie2out ${sample}.bowtie2.bz2 -o ${sample}_profiled.tsv
     """
 }
 
