@@ -62,7 +62,7 @@ process strainphlan {
 
     script:
     """
-    rnaspades.py -1 ${reads[0]} -2 ${reads[1]} -o ${sample}_spades
+    sudo docker run -v /mnt/gwu/vaginal/work/d5/5a1aaa6cb89aaec2cb5d51012d5377/:/tmp biobakery/metaphlan sample2markers.py -i in3670_10.sam.bz2 -o ./
     mv ${sample}_spades/transcripts.fasta ${sample}_assembled.fasta
     """
 }
